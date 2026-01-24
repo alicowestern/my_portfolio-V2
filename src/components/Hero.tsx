@@ -113,7 +113,7 @@ export default function Hero() {
                             <div className="absolute inset-4 border border-stone-100 dark:border-stone-800 rounded-full"></div>
 
                             {/* Main Image Container */}
-                            <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white dark:border-stone-900 shadow-2xl relative">
+                            <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white dark:border-stone-900 shadow-2xl">
                                 <Image
                                     src={personalInfo.profileImage || "/profile.jpg"}
                                     alt={personalInfo.name}
