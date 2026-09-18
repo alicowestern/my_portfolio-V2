@@ -1,31 +1,31 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Education from "@/components/Education";
+import FocusAreas from "@/components/FocusAreas";
 import Projects from "@/components/Projects";
-import Volunteering from "@/components/Volunteering";
-import Contact from "@/components/Contact";
+import Process from "@/components/Process";
+import RealWorldContext from "@/components/RealWorldContext";
+import Tools from "@/components/Tools";
+import About from "@/components/About";
+import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-stone-50 dark:bg-stone-950 selection:bg-amber-200 dark:selection:bg-amber-900/30">
+    <main className="min-h-screen bg-[#0A0F1A] relative">
+      <ScrollProgress />
       <Header />
       <Hero />
-
-      <div className="container mx-auto px-4 md:px-6 space-y-24 md:space-y-32 pb-24">
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Projects />
-        <Volunteering />
-        <Contact />
-      </div>
-
+      <FocusAreas />
+      <Projects />
+      <Process />
+      <RealWorldContext />
+      <Tools />
+      <About />
+      <CTA />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }
