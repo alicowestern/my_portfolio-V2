@@ -1,153 +1,169 @@
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 
 export const personalInfo = {
     name: "Alem Desta",
-    title: "Full-Stack Developer | Software Engineer",
+    headline: "Designing solutions that start with understanding the problem.",
+    subHeadline: "Full Stack Developer and 4th-year Software Engineering student, focused on requirement analysis and building reliable, user-centered systems under real-world constraints.",
     email: "alicox2024@gmail.com",
-    phone: "(+251) 987575589",
-    address: "Mekelle University Main Campus, Mekelle, Ethiopia",
-    linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
     github: "https://github.com/alicowestern",
-    about: "Results-driven Software Engineer with expertise in frontend development and requirement analysis. Dedicated to building scalable, user-centric web applications and transforming complex requirements into seamless digital experiences.",
-    roles: ["Software Engineer", "Frontend Developer", "Requirement Analyst"],
+    linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
+    cvUrl: "/Alem-Desta-CV.pdf",
     profileImage: "/profile.jpg",
-    socials: [
-        {
-            name: "Email",
-            icon: Mail,
-            href: "mailto:alicox2024@gmail.com",
-            display: "alicox2024@gmail.com"
-        },
-        {
-            name: "LinkedIn",
-            icon: Linkedin,
-            href: "https://www.linkedin.com/in/alem-desta-73034137b",
-            display: "LinkedIn"
-        },
-        {
-            name: "GitHub",
-            icon: Github,
-            href: "https://github.com/alicowestern",
-            display: "GitHub"
-        },
-        {
-            name: "Location",
-            icon: MapPin,
-            href: "#",
-            display: "Mekelle, Ethiopia"
-        },
-        {
-            name: "Phone",
-            icon: Phone,
-            href: "tel:+251987575589",
-            display: "(+251) 987575589"
-        }
-    ]
+    about: "I am a 4th-year Software Engineering student with a deep interest in full stack development and requirement analysis. My approach is heavily influenced by my experience volunteering with humanitarian NGOs, where I learned to work with unclear requirements and build critical solutions for real users. I focus on clarity, usability, and structured thinking—ensuring that every line of code serves a clear human need."
 };
 
-export const education = [
+export const focusAreas = [
     {
-        institution: "Mekelle University",
-        degree: "BSc in Software Engineering",
-        date: "24/09/2019 – Current",
-        location: "Mekelle, Ethiopia",
-        description: "Bachelor's in Software Engineering-gaining expertise in software development, system design, and practical problem-solving using modern technologies for efficient, scalable solutions.",
+        title: "Problem Solving",
+        description: "Breaking down ambiguity into manageable parts and identifying core constraints before writing a single line of code."
+    },
+    {
+        title: "Requirement Analysis",
+        description: "Understanding system goals and user needs upfront. I believe that a well-defined problem is a half-solved problem."
+    },
+    {
+        title: "Software Design & Architecture",
+        description: "Structuring scalable systems and clean interfaces. Moving beyond just UI/UX to ensure the entire application architecture is robust, secure, and maintainable."
     }
 ];
 
-export const experience = [
+export const processSteps = [
     {
-        role: "Community Social Worker",
-        organization: "Danish Refugee Council",
-        date: "01/10/2023 – 31/01/2025",
-        location: "Al Gedarif State, Sudan",
-        description: "Supported the Danish Refugee Council's food security and livelihood programs. Assisted in project management and community mobilization."
+        title: "Understand",
+        description: "Deep dive into the problem space. Who is this for? What are the constraints?"
     },
     {
-        role: "Community Development Social Worker",
-        organization: "Danish Refugee Council",
-        date: "01/09/2021 – 31/03/2023",
-        location: "Al Gedarif state, Sudan",
-        description: "Community Mobilizer (Site Management) experienced in community engagement, FCRM implementation, crowd management, and interpretation support for DRC staff."
+        title: "Analyze",
+        description: "Structuring requirements. Defining the 'what' before the 'how'."
     },
     {
-        role: "Survey Enumerator",
-        organization: "Solidaritès International",
-        date: "30/03/2021 – 14/06/2021",
-        location: "Al Gedarif State, Sudan",
-        description: "Conducted water quality analyses for Solidarités International, assessing pH, FRC, and flow to ensure safe, reliable water access."
+        title: "Design",
+        description: "Sketching solutions. UI/UX decisions based on user needs, not trends."
+    },
+    {
+        title: "Implement",
+        description: "Clean, semantic code. Functionality first, then polish."
+    },
+    {
+        title: "Iterate",
+        description: "Refining based on feedback. The solution is never truly 'finished', only improved."
     }
 ];
 
-export const skills = [
-    { category: "Technical", items: ["Requirement gathering and analysis", "Version Control (Git)", "Software Development", "System Design"] },
-    { category: "Productivity", items: ["Microsoft Excel", "Microsoft Word", "Google Drive", "Microsoft Powerpoint", "Figma", "Canva"] },
-    { category: "Languages", items: ["Tigrigna (Mother Tongue)", "Amharic (Fluent C2)", "English (Upper-Intermediate B2)"] },
-    { category: "Soft Skills", items: ["Team-work oriented", "Problem Solving", "Communication"] }
-];
+// Tech Stack Dictionary with Icons
+export const techStack = {
+    React: { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
+    NextJS: { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
+    TypeScript: { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+    Tailwind: { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+    FramerMotion: { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer/0055FF" },
+    SpringBoot: { name: "Spring Boot", icon: "https://cdn.simpleicons.org/springboot/6DB33F" },
+    Figma: { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
+    Git: { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
+    GitHub: { name: "GitHub", icon: "https://cdn.simpleicons.org/github/white" },
+    Swagger: { name: "Swagger", icon: "https://cdn.simpleicons.org/swagger/85EA2D" },
+    Trello: { name: "Trello", icon: "https://cdn.simpleicons.org/trello/0052CC" },
+    Express: { name: "Express", icon: "https://cdn.simpleicons.org/express/white" },
+    Python: { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
+    Pandas: { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas/150458" },
+    D3: { name: "D3.js", icon: "https://cdn.simpleicons.org/d3/F9A03C" },
+    PostgreSQL: { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/4169E1" },
+    MongoDB: { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
+    Jira: { name: "Jira", icon: "https://cdn.simpleicons.org/jira/0052CC" }
+};
 
-export const certifications = [
+export const tools = [
     {
-        name: "Fundamentals of digital marketing",
-        issuer: "Google",
-        date: "09/2025"
+        category: "Frontend",
+        items: [techStack.React, techStack.NextJS, techStack.TypeScript, techStack.Tailwind, techStack.FramerMotion]
     },
     {
-        name: "Cybersecurity Fundamentals",
-        issuer: "ADBI",
-        date: "08/2025"
+        category: "Backend & Data",
+        items: [techStack.SpringBoot, techStack.Express, techStack.Python, techStack.PostgreSQL, techStack.MongoDB, techStack.Pandas, techStack.D3]
     },
     {
-        name: "Elements of AI (2 ECTS)",
-        issuer: "University of Helsinki",
-        date: "08/2025"
-    },
-    {
-        name: "Programming Fundamentals Nanodegree",
-        issuer: "Udacity",
-        date: "03/2025"
-    },
-    {
-        name: "Entrepreneurship Development Workshop",
-        issuer: "Mekelle University",
-        date: "03/2024"
-    },
-    {
-        name: "Humanitarian Principles: Confidentiality, Consent & Inclusion",
-        issuer: "Danish Refugee Council",
-        date: "03/2023"
-    },
-    {
-        name: "Feedback and Complaints Response Mechanisms (FCRM) Training",
-        issuer: "Danish Refugee Council",
-        date: "08/2022"
-    },
-    {
-        name: "Camp Coordination and Camp Management (CCCM) Training",
-        issuer: "Danish Refugee Council",
-        date: "03/2022"
+        category: "Tools & Design",
+        items: [techStack.Figma, techStack.Git, techStack.GitHub, techStack.Swagger, techStack.Trello, techStack.Jira]
     }
 ];
 
-export const volunteering = [
+export const projects = [
     {
-        role: "Vice Chairman & Co-Founder",
-        organization: "Mahber Mthggaz Tegaru Tenedbah",
-        date: "30/06/2023 – 30/11/2024",
-        location: "Tunedbah Refugee Camp, Al-Gedarif, Sudan",
-        description: "Co-founded and led a charity group supporting vulnerable populations with cash and material assistance, organizing year-round relief initiatives for all communities.",
-        links: [
-            { label: "Facebook", url: "https://www.facebook.com/share/1DKh4JTykw/" },
-            { label: "Document", url: "https://drive.google.com/drive/folders/1_2W5rLjdyRgWktNJlt8ygZyFdrOfJSWr?usp=sharing" }
-        ]
+        title: "My Chicken Addis",
+        role: "Full Stack Developer",
+        timeline: "",
+        team: "",
+        problem: "Poultry farming operations and farmer services required a streamlined digital platform to manage operations efficiently.",
+        requirements: "A fast, accessible web application for showcasing services, managing orders, and providing agricultural information.",
+        solution: "Developed a comprehensive web platform for poultry farming services with a focus on usability and performance.",
+        outcome: "Enhanced operational efficiency and improved access to farmer services.",
+        tech: [techStack.NextJS, techStack.React, techStack.Tailwind],
+        link: "https://github.com/alicowestern/my_chicken_addis",
+        demoUrl: "https://my-chicken-addis-chi.vercel.app/"
     },
     {
-        role: "Youth Advisory Group (YAG) Member — e-SHE Program",
-        organization: "Mekelle University",
-        date: "30/04/2025 – CURRENT",
-        description: "Selected as Mekelle University representative, contributing to youth empowerment and digital education initiatives.",
-        links: [
-            { label: "View Certificate/Doc", url: "https://drive.google.com/file/d/18_08KFoqmRytD3boL_ZNsXwiqHC2evTS/view?usp=sharing" }
-        ]
+        title: "CBE (SeeHere) Internal System",
+        role: "Full Stack Developer",
+        timeline: "",
+        team: "",
+        problem: "The Commercial Bank of Ethiopia required a robust internal tool (SeeHere) for managing and tracking organizational operations securely.",
+        requirements: "A secure, LAN-hosted application tailored for internal banking operational requirements and high reliability.",
+        solution: "Engineered a secure internal system designed to be hosted on the local network (LAN) for maximum security and performance.",
+        outcome: "Delivered a reliable internal management tool ensuring data privacy and operational continuity.",
+        tech: [techStack.React, techStack.SpringBoot, techStack.PostgreSQL],
+        link: "https://github.com/alicowestern/SeeHere",
+        demoUrl: "Recommended for LAN hosting"
+    },
+    {
+        title: "Zebegna",
+        role: "Full Stack Developer",
+        timeline: "",
+        team: "",
+        problem: "Needed a localized solution for security/operational tracking utilizing internal infrastructure.",
+        requirements: "A system relying on local GitLab and local hosting environments to maintain complete data sovereignty.",
+        solution: "Built a customized system deployed entirely on local infrastructure, leveraging local GitLab for source control.",
+        outcome: "Provided a fully sovereign, locally-hosted system meeting strict internal operational requirements.",
+        tech: [techStack.NextJS, techStack.PostgreSQL, techStack.Tailwind],
+        link: "#",
+        demoUrl: "Local Hosting"
     }
 ];
+
+export const realWorldContext = {
+    content: "My approach to software engineering is heavily influenced by my time volunteering with NGOs and working in refugee camps. I learned to work with unclear requirements, limited resources, and users who needed critical fast solutions. This experience taught me that code is just a tool—the real skill is communication, prioritization, and truly understanding the human problem before writing a single character."
+};
+
+export const socialLinks = [
+    {
+        name: "GitHub",
+        icon: Github,
+        href: "https://github.com/alicowestern"
+    },
+    {
+        name: "LinkedIn",
+        icon: Linkedin,
+        href: "https://www.linkedin.com/in/alem-desta-73034137b"
+    },
+    {
+        name: "Email",
+        icon: Mail,
+        href: "mailto:alicox2024@gmail.com"
+    },
+    {
+        name: "Instagram",
+        icon: "https://cdn.simpleicons.org/instagram/E4405F",
+        href: "https://instagram.com/alesdev00"
+    },
+    {
+        name: "Facebook",
+        icon: "https://cdn.simpleicons.org/facebook/1877F2",
+        href: "https://facebook.com/alesdev00"
+    },
+    {
+        name: "WhatsApp",
+        icon: "https://cdn.simpleicons.org/whatsapp/25D366",
+        href: "https://wa.me/251987575589"
+    }
+];
+
+
