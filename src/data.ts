@@ -9,7 +9,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
     cvUrl: "/Alem-Desta-CV.pdf",
     profileImage: "/profile.jpg",
-    about: "I am a 4th-year Software Engineering student with a deep interest in full stack development and requirement analysis. My approach is heavily influenced by my experience volunteering with humanitarian NGOs, where I learned to work with unclear requirements and build critical solutions for real users. I focus on clarity, usability, and structured thinking—ensuring that every line of code serves a clear human need."
+    about: "I am a 5th-year Software Engineering student with a deep interest in full-stack development and requirements analysis. I have engineered enterprise-grade systems for organizations like the Commercial Bank of Ethiopia and INSA, delivering production-ready solutions that handle real-world security, compliance, and operational challenges. My approach is heavily influenced by my experience volunteering with humanitarian NGOs, where I learned to work with unclear requirements and build critical solutions for real users. I focus on clarity, usability, and structured thinking—ensuring that every line of code serves a clear human need."
 };
 
 export const focusAreas = [
@@ -69,17 +69,29 @@ export const techStack = {
     D3: { name: "D3.js", icon: "https://cdn.simpleicons.org/d3/F9A03C" },
     PostgreSQL: { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/4169E1" },
     MongoDB: { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
-    Jira: { name: "Jira", icon: "https://cdn.simpleicons.org/jira/0052CC" }
+    Jira: { name: "Jira", icon: "https://cdn.simpleicons.org/jira/0052CC" },
+    Vite: { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
+    Java: { name: "Java", icon: "https://cdn.simpleicons.org/openjdk/white" },
+    Keycloak: { name: "Keycloak", icon: "https://cdn.simpleicons.org/keycloak/4D4D4D" },
+    Maven: { name: "Maven", icon: "https://cdn.simpleicons.org/apachemaven/C71A36" },
+    SpringSecurity: { name: "Spring Security", icon: "https://cdn.simpleicons.org/springsecurity/6DB33F" },
+    Flyway: { name: "Flyway", icon: "https://cdn.simpleicons.org/flyway/CC0200" },
+    ChartJS: { name: "Chart.js", icon: "https://cdn.simpleicons.org/chartdotjs/FF6384" },
+    Caddy: { name: "Caddy", icon: "https://cdn.simpleicons.org/caddy/1F88C0" }
 };
 
 export const tools = [
     {
         category: "Frontend",
-        items: [techStack.React, techStack.NextJS, techStack.TypeScript, techStack.Tailwind, techStack.FramerMotion]
+        items: [techStack.React, techStack.NextJS, techStack.Vite, techStack.TypeScript, techStack.Tailwind, techStack.ChartJS, techStack.FramerMotion]
     },
     {
         category: "Backend & Data",
-        items: [techStack.SpringBoot, techStack.Express, techStack.Python, techStack.PostgreSQL, techStack.MongoDB, techStack.Pandas, techStack.D3]
+        items: [techStack.Java, techStack.SpringBoot, techStack.SpringSecurity, techStack.Express, techStack.Python, techStack.PostgreSQL, techStack.MongoDB, techStack.Flyway, techStack.Pandas, techStack.D3]
+    },
+    {
+        category: "Security & Infrastructure",
+        items: [techStack.Keycloak, techStack.Caddy, techStack.Maven]
     },
     {
         category: "Tools & Design",
@@ -102,35 +114,35 @@ export const projects = [
         demoUrl: "https://my-chicken-addis-chi.vercel.app/"
     },
     {
-        title: "CBE (SeeHere) Internal System",
-        role: "Full Stack Developer",
+        title: "SeeHere (CBE ATM Management System)",
+        role: "Full-Stack Developer / Software Engineer",
         timeline: "",
-        team: "",
-        problem: "The Commercial Bank of Ethiopia required a robust internal tool (SeeHere) for managing and tracking organizational operations securely.",
-        requirements: "A secure, LAN-hosted application tailored for internal banking operational requirements and high reliability.",
-        solution: "Engineered a secure internal system designed to be hosted on the local network (LAN) for maximum security and performance.",
-        outcome: "Delivered a reliable internal management tool ensuring data privacy and operational continuity.",
-        tech: [techStack.React, techStack.SpringBoot, techStack.PostgreSQL],
+        team: "Commercial Bank of Ethiopia (CBE)",
+        problem: "Before SeeHere, tracking ATM statuses, coordinating maintenance, and managing branch contacts was manual, leading to delays in ATM servicing and scattered data.",
+        requirements: "A secure, scalable, and centralized ATM Management System to digitize tracking, maintenance, and administrative management of the ATM network on the bank's LAN.",
+        solution: "Developed a dynamic SSR frontend with Next.js and a Java Spring Boot backend with Role-Based Access Control, comprehensive audit logging, and a secure LAN deployment using Caddy.",
+        outcome: "Delivered a system that significantly improved the bank's operational efficiency and hardware downtime response by replacing fragmented manual tracking.",
+        tech: [techStack.NextJS, techStack.React, techStack.TypeScript, techStack.Tailwind, techStack.SpringBoot, techStack.PostgreSQL],
         link: "https://github.com/alicowestern/SeeHere",
-        demoUrl: "Recommended for LAN hosting"
+        demoUrl: "Deployed on CBE LAN"
     },
     {
-        title: "Zebegna",
-        role: "Full Stack Developer",
+        title: "Zebegna ዘበኛ (Device Exit Control System)",
+        role: "Sole Full-Stack Developer",
         timeline: "",
-        team: "",
-        problem: "Needed a localized solution for security/operational tracking utilizing internal infrastructure.",
-        requirements: "A system relying on local GitLab and local hosting environments to maintain complete data sovereignty.",
-        solution: "Built a customized system deployed entirely on local infrastructure, leveraging local GitLab for source control.",
-        outcome: "Provided a fully sovereign, locally-hosted system meeting strict internal operational requirements.",
-        tech: [techStack.NextJS, techStack.PostgreSQL, techStack.Tailwind],
+        team: "INSA (Information Network Security Administration)",
+        problem: "INSA needed a secure, enterprise-grade system to strictly manage hardware device exit controls, multi-level approvals, and audit trails — replacing manual processes at a national security agency.",
+        requirements: "A full-stack device exit control system with device registration, multi-level exit approvals, comprehensive audit logging, external ERP synchronization, automated document generation (PDF, Excel, Word), and Keycloak-based identity management.",
+        solution: "Engineered the entire system solo — from authoring a 55-page SRS document through to deployment. Built a Java 17/Spring Boot 3.2 backend with Keycloak OAuth2, Resilience4j circuit breakers for ERP integration, and a React 19/Vite frontend with TanStack Query, Chart.js/Recharts dashboards, and strict RBAC.",
+        outcome: "Delivered a production-ready, security-hardened system that digitized INSA's device exit workflow, enabling real-time tracking, automated reporting, and full regulatory compliance.",
+        tech: [techStack.Java, techStack.SpringBoot, techStack.React, techStack.Vite, techStack.TypeScript, techStack.Tailwind, techStack.PostgreSQL, techStack.Swagger],
         link: "#",
-        demoUrl: "Local Hosting"
+        demoUrl: "Deployed on INSA Internal Network"
     }
 ];
 
 export const realWorldContext = {
-    content: "My approach to software engineering is heavily influenced by my time volunteering with NGOs and working in refugee camps. I learned to work with unclear requirements, limited resources, and users who needed critical fast solutions. This experience taught me that code is just a tool—the real skill is communication, prioritization, and truly understanding the human problem before writing a single character."
+    content: "My approach to software engineering was shaped by volunteering with NGOs in refugee camps—where I learned to navigate unclear requirements and build critical solutions with limited resources—and sharpened by engineering enterprise systems for the Commercial Bank of Ethiopia and INSA. From humanitarian fieldwork to national-security infrastructure, these experiences taught me that code is just a tool—the real skill is communication, prioritization, and truly understanding the human problem before writing a single character."
 };
 
 export const socialLinks = [

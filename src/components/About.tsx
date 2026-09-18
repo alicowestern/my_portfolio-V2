@@ -38,8 +38,8 @@ export default function About() {
                         {/* Stats row */}
                         <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-white/5">
                             {[
-                                { value: "4th", label: "Year Student" },
-                                { value: "3+", label: "Projects Built" },
+                                { value: "5th", label: "Year Student" },
+                                { value: "10+", label: "Projects Built" },
                                 { value: "2+", label: "Years NGO Exp." },
                             ].map((stat, i) => (
                                 <motion.div
