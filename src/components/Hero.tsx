@@ -53,7 +53,7 @@ export default function Hero() {
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight font-[family-name:var(--font-syne)]">
                             <span className="text-[#E5E7EB]">Turning complex requirements </span>
-                            <span className="text-gradient">into reliable web systems.</span>
+                            <span className="text-gradient">into reliable software systems.</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-[#8B95A9] leading-relaxed max-w-xl">

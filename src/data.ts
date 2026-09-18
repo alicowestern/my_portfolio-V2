@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Phone } from "lucide-react";
 export const personalInfo = {
     name: "Alem Desta",
     headline: "Designing solutions that start with understanding the problem.",
-    subHeadline: "Full Stack Developer and 4th-year Software Engineering student, focused on requirement analysis and building reliable, user-centered systems under real-world constraints.",
+    subHeadline: "5th-year Software Engineering student and Full-Stack Developer, focused on requirements analysis and building reliable, user-centered systems for real-world needs.",
     email: "alicox2024@gmail.com",
     github: "https://github.com/alicowestern",
     linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
