@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
+import { ExternalLink, Github, Shield } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { projects } from "@/data";
 
@@ -68,7 +67,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                             </h3>
                         </div>
                         <div className="flex gap-2">
-                            {project.demoUrl && project.demoUrl !== "#" && (
+                            {project.demoUrl && project.demoUrl !== "#" && !project.demoUrl.startsWith("Deployed") ? (
                                 <a
                                     href={project.demoUrl}
                                     target="_blank"
@@ -78,7 +77,12 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                                     <ExternalLink size={14} />
                                     Live
                                 </a>
-                            )}
+                            ) : project.demoUrl && project.demoUrl.startsWith("Deployed") ? (
+                                <span className="flex items-center gap-2 bg-[#34D399]/10 text-[#34D399] px-4 py-2 rounded-full text-xs font-bold border border-[#34D399]/20">
+                                    <Shield size={14} />
+                                    Internal
+                                </span>
+                            ) : null}
                             {project.link !== "#" && (
                                 <a
                                     href={project.link}
@@ -146,12 +150,15 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                                     whileHover={{ scale: 1.05, y: -2 }}
                                     className="flex items-center gap-2 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/5 hover:border-[#38BDF8]/20 transition-all"
                                 >
-                                    <div className="relative w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity">
-                                        <Image
+                                    <div className="relative w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
                                             src={tech.icon}
                                             alt={tech.name}
-                                            fill
-                                            className="object-contain"
+                                            width={16}
+                                            height={16}
+                                            className="object-contain w-full h-full"
+                                            loading="lazy"
                                         />
                                     </div>
                                     <span className="text-xs font-medium text-[#8B95A9]">{tech.name}</span>

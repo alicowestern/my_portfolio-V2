@@ -173,3 +173,28 @@ html {
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }
+
+/* ===== TYPEWRITER CURSOR ===== */
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor::after {
+  content: "|";
+  display: inline-block;
+  color: #38BDF8;
+  animation: blink-caret 0.8s step-end infinite;
+  margin-left: 2px;
+  font-weight: 300;
+}
+
+/* ===== BOUNCE ARROW ===== */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}

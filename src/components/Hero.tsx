@@ -1,12 +1,40 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowRight, Github, Sparkles } from "lucide-react";
+import { ArrowRight, Github, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/data";
 
 export default function Hero() {
+    const textToType = "into reliable software systems.";
+    const [typedText, setTypedText] = useState("");
+    const [isTyping, setIsTyping] = useState(true);
+
+    useEffect(() => {
+        let i = 0;
+        const typeWriter = () => {
+            if (i < textToType.length) {
+                setTypedText(textToType.substring(0, i + 1));
+                i++;
+                setTimeout(typeWriter, 80);
+            } else {
+                setIsTyping(false);
+            }
+        };
+        // Start typing after initial load animation
+        setTimeout(typeWriter, 600);
+    }, []);
+
+    const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const projectsSection = document.getElementById("projects");
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
-        <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+        <section className="relative min-h-screen pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden flex flex-col justify-center">
 
             {/* Aurora Background */}
             <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
@@ -42,21 +70,23 @@ export default function Hero() {
                 }}
             />
 
-            <div className="container mx-auto max-w-5xl relative z-10">
-                <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+            <div className="container mx-auto max-w-5xl relative z-10 flex-grow flex items-center">
+                <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16 w-full">
                     {/* Text Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                        className="flex-1 space-y-8"
+                        className="flex-1 space-y-8 text-center md:text-left"
                     >
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight font-[family-name:var(--font-syne)]">
-                            <span className="text-[#E5E7EB]">Turning complex requirements </span>
-                            <span className="text-gradient">into reliable software systems.</span>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight font-[family-name:var(--font-syne)] min-h-[140px] md:min-h-0">
+                            <span className="text-[#E5E7EB] block mb-2">Turning complex requirements </span>
+                            <span className={`text-gradient ${isTyping ? 'typewriter-cursor' : ''}`}>
+                                {typedText}
+                            </span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-[#8B95A9] leading-relaxed max-w-xl">
+                        <p className="text-lg md:text-xl text-[#8B95A9] leading-relaxed max-w-xl mx-auto md:mx-0">
                             {personalInfo.subHeadline}
                         </p>
 
@@ -64,10 +94,11 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, type: "spring", stiffness: 80 }}
-                            className="flex flex-wrap items-center gap-4 pt-4"
+                            className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4"
                         >
                             <a
                                 href="#projects"
+                                onClick={scrollToProjects}
                                 className="group flex items-center gap-2 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0A0F1A] px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] hover:scale-105 transition-all"
                             >
                                 View Projects
@@ -131,6 +162,19 @@ export default function Hero() {
                     </motion.div>
                 </div>
             </div>
+
+            {/* Scroll Indicator */}
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2"
+            >
+                <span className="text-[10px] font-medium text-[#8B95A9] tracking-[0.2em] uppercase">Scroll</span>
+                <div className="w-8 h-12 rounded-full border border-white/10 flex justify-center p-1 bg-white/[0.02] backdrop-blur-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-bounce-gentle mt-1" />
+                </div>
+            </motion.div>
         </section>
     );
 }

@@ -1,6 +1,5 @@
-﻿"use client";
+"use client";
 import Link from "next/link";
-import Image from "next/image";
 import { personalInfo, socialLinks } from "@/data";
 
 export default function Footer() {
@@ -34,12 +33,15 @@ export default function Footer() {
                             aria-label={link.name}
                         >
                             {typeof link.icon === "string" ? (
-                                <div className="relative w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
-                                    <Image
+                                <div className="relative w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
                                         src={link.icon}
                                         alt={link.name}
-                                        fill
-                                        className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                                        width={20}
+                                        height={20}
+                                        className="object-contain w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300"
+                                        loading="lazy"
                                     />
                                 </div>
                             ) : (

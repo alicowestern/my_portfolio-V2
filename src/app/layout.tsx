@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Alem Desta | Full Stack Developer",
   description: "Full Stack Developer and Software Engineering student. Transforming complex requirements into clean, accessible interfaces.",
   metadataBase: new URL(siteUrl),
+  keywords: ["Alem Desta", "Full Stack Developer", "Software Engineer", "Next.js", "React", "Spring Boot", "Ethiopia"],
+  authors: [{ name: "Alem Desta" }],
+  creator: "Alem Desta",
   openGraph: {
     title: "Alem Desta | Full Stack Developer",
     description: "Full Stack Developer focused on Requirement Analysis and UI/UX. View my projects and process.",
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Alem Desta Portfolio",
     images: [
       {
-        url: "/profile.jpg",
+        url: "/profile.jpg", // Consider replacing with a dedicated OG image 1200x630
         width: 800,
         height: 600,
       },
@@ -42,6 +45,29 @@ export const metadata: Metadata = {
     description: "Full Stack Developer and Software Engineering student.",
     images: ["/profile.jpg"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Alem Desta',
+  url: siteUrl,
+  jobTitle: 'Full Stack Developer',
+  sameAs: [
+    'https://github.com/alicowestern',
+    'https://www.linkedin.com/in/alem-desta-73034137b'
+  ]
 };
 
 export default function RootLayout({
@@ -51,6 +77,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${syne.variable} font-sans antialiased bg-[#0A0F1A] text-[#E5E7EB] selection:bg-[#38BDF8] selection:text-[#0A0F1A]`}
       >

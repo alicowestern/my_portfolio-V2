@@ -1,27 +1,67 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Mail, ArrowRight, Send, CheckCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, ArrowRight, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { socialLinks } from "@/data";
+
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 export default function CTA() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState<FormStatus>("idle");
     const [isFormOpen, setIsFormOpen] = useState(false);
     const formRef = useRef<HTMLDivElement>(null);
     const contactLinks = socialLinks.filter((link) =>
         ["LinkedIn", "Email", "WhatsApp", "Instagram", "Facebook"].includes(link.name)
     );
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Open mailto with filled data as fallback
-        const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
-        window.location.href = `mailto:alicox2024@gmail.com?subject=${subject}&body=${body}`;
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 4000);
+        setStatus("loading");
+
+        const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+        if (!accessKey) {
+            // Fallback to mailto
+            const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
+            window.location.href = `mailto:alicox2024@gmail.com?subject=${subject}&body=${body}`;
+            setStatus("success");
+            setTimeout(() => {
+                setStatus("idle");
+                setFormData({ name: "", email: "", message: "" });
+            }, 4000);
+            return;
+        }
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    from_name: "Portfolio Contact Form",
+                    subject: `New message from ${formData.name}`,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setStatus("success");
+                setFormData({ name: "", email: "", message: "" });
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus("idle"), 5000);
+            }
+        } catch {
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 5000);
+        }
     };
 
     useEffect(() => {
@@ -64,12 +104,15 @@ export default function CTA() {
                                     aria-label={link.name}
                                 >
                                     {typeof link.icon === "string" ? (
-                                        <div className="relative w-5 h-5 opacity-70 hover:opacity-100 transition-opacity">
-                                            <Image
+                                        <div className="relative w-5 h-5 opacity-70 hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
                                                 src={link.icon}
                                                 alt={link.name}
-                                                fill
-                                                className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                                                width={20}
+                                                height={20}
+                                                className="object-contain w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+                                                loading="lazy"
                                             />
                                         </div>
                                     ) : (
@@ -120,6 +163,7 @@ export default function CTA() {
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#E5E7EB] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
                                             placeholder="John Doe"
+                                            disabled={status === "loading"}
                                         />
                                     </div>
                                     {/* Email */}
@@ -135,6 +179,7 @@ export default function CTA() {
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#E5E7EB] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
                                             placeholder="john@example.com"
+                                            disabled={status === "loading"}
                                         />
                                     </div>
                                 </div>
@@ -152,21 +197,33 @@ export default function CTA() {
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#E5E7EB] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all resize-none"
                                         placeholder="Tell me about your project or idea..."
+                                        disabled={status === "loading"}
                                     />
                                 </div>
 
-                                {/* Submit */}
+                                {/* Submit + Status */}
                                 <div className="flex flex-wrap items-center gap-4">
                                     <motion.button
                                         type="submit"
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.97 }}
-                                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0A0F1A] px-8 py-3.5 rounded-full font-bold text-base hover:shadow-[0_0_40px_rgba(56,189,248,0.3)] transition-shadow"
+                                        whileHover={{ scale: status === "loading" ? 1 : 1.03 }}
+                                        whileTap={{ scale: status === "loading" ? 1 : 0.97 }}
+                                        disabled={status === "loading"}
+                                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0A0F1A] px-8 py-3.5 rounded-full font-bold text-base hover:shadow-[0_0_40px_rgba(56,189,248,0.3)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed"
                                     >
-                                        {submitted ? (
+                                        {status === "loading" ? (
+                                            <>
+                                                <Loader2 size={18} className="animate-spin" />
+                                                Sending...
+                                            </>
+                                        ) : status === "success" ? (
                                             <>
                                                 <CheckCircle size={18} />
                                                 Sent!
+                                            </>
+                                        ) : status === "error" ? (
+                                            <>
+                                                <AlertCircle size={18} />
+                                                Failed — Try Again
                                             </>
                                         ) : (
                                             <>
@@ -185,6 +242,32 @@ export default function CTA() {
                                         alicox2024@gmail.com
                                     </a>
                                 </div>
+
+                                {/* Toast notification */}
+                                <AnimatePresence>
+                                    {status === "success" && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className="flex items-center gap-2 text-[#34D399] text-sm bg-[#34D399]/10 border border-[#34D399]/20 rounded-xl px-4 py-3"
+                                        >
+                                            <CheckCircle size={16} />
+                                            Message sent successfully! I&apos;ll get back to you soon.
+                                        </motion.div>
+                                    )}
+                                    {status === "error" && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className="flex items-center gap-2 text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-xl px-4 py-3"
+                                        >
+                                            <AlertCircle size={16} />
+                                            Something went wrong. Please try again or email me directly.
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </form>
                         </div>
                     </motion.div>

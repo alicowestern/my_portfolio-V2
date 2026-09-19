@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { tools } from "@/data";
 
 export default function Tools() {
@@ -49,12 +48,15 @@ export default function Tools() {
                                         transition={{ type: "spring", stiffness: 200, damping: 15, delay: i * 0.03 }}
                                         className="flex flex-col items-center justify-center p-3 bg-white/[0.02] rounded-xl border border-white/5 group hover:border-[#38BDF8]/20 hover:bg-white/[0.04] transition-all cursor-default"
                                     >
-                                        <div className="relative w-7 h-7 mb-2 opacity-50 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0">
-                                            <Image
+                                        <div className="relative w-7 h-7 mb-2 opacity-50 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 flex items-center justify-center">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
                                                 src={item.icon}
                                                 alt={item.name}
-                                                fill
-                                                className="object-contain"
+                                                width={28}
+                                                height={28}
+                                                className="object-contain w-full h-full"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <span className="text-[10px] font-medium text-[#8B95A9] group-hover:text-[#E5E7EB] transition-colors text-center">
