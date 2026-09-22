@@ -37,7 +37,7 @@ export default function ScrollToTop() {
                     exit={{ opacity: 0, scale: 0.5, y: 20 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-[90] bg-[#0F1629] text-[#38BDF8] p-3 shadow-[0_0_20px_rgba(56,189,248,0.2)] hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] transition-shadow flex items-center justify-center group outline-none"
+                    className="fixed bottom-8 right-8 z-[90] bg-white text-[#38BDF8] p-3 shadow-[0_0_20px_rgba(56,189,248,0.2)] hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] transition-shadow flex items-center justify-center group outline-none"
                     aria-label="Scroll to top"
                     style={{ borderRadius: "50%" }}
                 >

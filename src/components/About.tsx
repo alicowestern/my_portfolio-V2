@@ -17,7 +17,7 @@ function Counter({ from, to, suffix = "", duration = 2 }: { from: number; to: nu
             if (!startTime) startTime = timestamp;
             const progress = timestamp - startTime;
             const percentage = Math.min(progress / (duration * 1000), 1);
-            
+
             // Ease out quad
             const easeOut = 1 - (1 - percentage) * (1 - percentage);
             setCount(Math.floor(from + (to - from) * easeOut));
@@ -41,7 +41,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="scroll-mt-24 py-24 px-6 bg-[#0A0F1A] relative">
+        <section id="about" className="scroll-mt-24 py-24 px-6 bg-[#F5F5F0] relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
             <div className="container mx-auto max-w-3xl">
@@ -64,15 +64,15 @@ export default function About() {
                     </motion.div>
 
                     <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Background</span>
-                    <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#E5E7EB] mb-10">About Me</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-10">About Me</h2>
 
                     <div className="glass-card rounded-2xl p-8 md:p-12 text-left">
-                        <p className="text-base md:text-lg text-[#8B95A9] leading-[1.8]">
+                        <p className="text-base md:text-lg text-[#52525B] leading-[1.8]">
                             {personalInfo.about}
                         </p>
 
                         {/* Stats row */}
-                        <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-white/5">
+                        <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-black/5">
                             {stats.map((stat, i) => (
                                 <motion.div
                                     key={i}
@@ -85,7 +85,7 @@ export default function About() {
                                     <div className="text-2xl font-bold text-gradient font-[family-name:var(--font-syne)]">
                                         <Counter from={0} to={stat.value} suffix={stat.suffix} />
                                     </div>
-                                    <div className="text-xs text-[#8B95A9] mt-1">{stat.label}</div>
+                                    <div className="text-xs text-[#52525B] mt-1">{stat.label}</div>
                                 </motion.div>
                             ))}
                         </div>

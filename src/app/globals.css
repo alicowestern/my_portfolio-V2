@@ -4,25 +4,25 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Premium Dark Theme Palette */
-  --color-primary-bg: #0A0F1A;
-  --color-section-bg: #0F1629;
-  --color-card-bg: rgba(15, 22, 41, 0.6);
-  --color-primary-text: #E5E7EB;
-  --color-secondary-text: #8B95A9;
+  /* Premium Light Theme Palette */
+  --color-primary-bg: #F5F5F0;
+  --color-section-bg: #FFFFFF;
+  --color-card-bg: #FFFFFF;
+  --color-primary-text: #18181B;
+  --color-secondary-text: #52525B;
   --color-accent: #38BDF8;
   --color-accent-secondary: #818CF8;
   --color-accent-tertiary: #34D399;
-  --color-border: rgba(56, 189, 248, 0.08);
-  --color-border-hover: rgba(56, 189, 248, 0.25);
+  --color-border: rgba(0, 0, 0, 0.05);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
   
   --font-sans: var(--font-inter);
   --font-display: var(--font-syne);
 }
 
 :root {
-  --background: #0A0F1A;
-  --foreground: #E5E7EB;
+  --background: #F5F5F0;
+  --foreground: #18181B;
   --font-inter: 'Inter', sans-serif;
   --font-syne: 'Syne', sans-serif;
 }
@@ -61,14 +61,14 @@ h1, h2, h3 {
 
 /* ===== GRADIENT TEXT UTILITY ===== */
 .text-gradient {
-  background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #34D399 100%);
+  background: linear-gradient(135deg, #18181B 0%, #3F3F46 50%, #52525B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-subtle {
-  background: linear-gradient(135deg, #E5E7EB 0%, #38BDF8 100%);
+  background: linear-gradient(135deg, #18181B 0%, #38BDF8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -76,17 +76,16 @@ h1, h2, h3 {
 
 /* ===== GLASSMORPHISM CARD ===== */
 .glass-card {
-  background: rgba(15, 22, 41, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.2);
-  background: rgba(15, 22, 41, 0.7);
-  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.06), 0 0 0 1px rgba(56, 189, 248, 0.1);
+  border-color: rgba(0, 0, 0, 0.18);
+  background: #FFFFFF;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* ===== ANIMATED GRADIENT BORDER ===== */
@@ -101,7 +100,7 @@ h1, h2, h3 {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(129, 140, 248, 0.3), rgba(52, 211, 153, 0.3));
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -119,7 +118,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0F1A; 
+  background: #F0F0EB; 
 }
 
 ::-webkit-scrollbar-thumb {
@@ -197,4 +196,101 @@ html {
 
 .animate-bounce-gentle {
   animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* ===== TECH STACK CARD STYLES ===== */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(56, 189, 248, 0.08); box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+  50% { border-color: rgba(129, 140, 248, 0.2); box-shadow: 0 0 20px -8px rgba(129, 140, 248, 0.12); }
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes subtleRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.tech-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.06), transparent 70%);
+  transition: opacity 0.5s ease;
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+.tech-card:hover {
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 0 24px -6px rgba(56, 189, 248, 0.12), 0 8px 20px -4px rgba(0, 0, 0, 0.04);
+}
+
+.tech-card:hover .tech-icon {
+  animation: iconFloat 2s ease-in-out infinite;
+  filter: grayscale(0) !important;
+  opacity: 1 !important;
+}
+
+/* ===== TECH TAG STYLES (Projects) ===== */
+.tech-tag {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-tag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(129, 140, 248, 0.06));
+  transition: opacity 0.3s ease;
+}
+
+.tech-tag:hover::after {
+  opacity: 1;
+}
+
+.tech-tag:hover {
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 2px 12px -3px rgba(56, 189, 248, 0.15);
+}
+
+/* ===== ANIMATED GRADIENT RING (Tools) ===== */
+.gradient-ring {
+  position: relative;
+}
+
+.gradient-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from 0deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15), rgba(52, 211, 153, 0.15), rgba(56, 189, 248, 0.15));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gradient-ring:hover::before {
+  opacity: 1;
+  animation: subtleRotate 8s linear infinite;
 }

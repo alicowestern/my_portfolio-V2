@@ -2,9 +2,16 @@
 import { motion } from "framer-motion";
 import { tools } from "@/data";
 
+const categoryAccents = [
+    { from: "#38BDF8", to: "#818CF8" },
+    { from: "#818CF8", to: "#34D399" },
+    { from: "#34D399", to: "#38BDF8" },
+    { from: "#F59E0B", to: "#EF4444" },
+];
+
 export default function Tools() {
     return (
-        <section className="py-24 px-6 bg-[#0A0F1A] relative">
+        <section className="py-24 px-6 bg-[#F5F5F0] relative">
             {/* Section glow divider */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#818CF8]/20 to-transparent" />
 
@@ -17,56 +24,70 @@ export default function Tools() {
                     className="mb-16"
                 >
                     <span className="text-[#818CF8] text-sm font-medium tracking-widest uppercase mb-3 block">Tech Stack</span>
-                    <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#E5E7EB] mb-4">Tools & Technologies</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">Tools & Technologies</h2>
                     <div className="h-1 w-16 bg-gradient-to-r from-[#818CF8] to-[#34D399] rounded-full"></div>
                 </motion.div>
 
-                {/* Bento Grid Layout */}
-                <div className="grid md:grid-cols-3 gap-4">
-                    {tools.map((group, groupIndex) => (
-                        <motion.div
-                            key={groupIndex}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ type: "spring", stiffness: 80, damping: 15, delay: groupIndex * 0.1 }}
-                            className={`glass-card rounded-2xl p-6 ${groupIndex === 0 ? "md:row-span-1" : ""}`}
-                        >
-                            <h3 className="text-xs font-bold text-[#8B95A9] uppercase tracking-widest mb-6 flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#818CF8]" />
-                                {group.category}
-                            </h3>
+                {/* Column Layout — stacked vertically */}
+                <div className="flex flex-col gap-6">
+                    {tools.map((group, groupIndex) => {
+                        const accent = categoryAccents[groupIndex] || categoryAccents[0];
+                        return (
+                            <motion.div
+                                key={groupIndex}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ type: "spring", stiffness: 80, damping: 18, delay: groupIndex * 0.08 }}
+                                className="gradient-ring rounded-2xl p-6 md:p-8 bg-white border border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-transparent transition-all duration-500"
+                            >
+                                <h3 className="text-xs font-bold text-[#3F3F46] uppercase tracking-widest mb-5 flex items-center gap-2.5">
+                                    <div
+                                        className="w-2 h-2 rounded-full"
+                                        style={{ background: `linear-gradient(135deg, ${accent.from}, ${accent.to})` }}
+                                    />
+                                    {group.category}
+                                </h3>
 
-                            <div className="grid grid-cols-2 gap-2">
-                                {group.items.map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        whileHover={{ y: -4, scale: 1.02 }}
-                                        transition={{ type: "spring", stiffness: 200, damping: 15, delay: i * 0.03 }}
-                                        className="flex flex-col items-center justify-center p-3 bg-white/[0.02] rounded-xl border border-white/5 group hover:border-[#38BDF8]/20 hover:bg-white/[0.04] transition-all cursor-default"
-                                    >
-                                        <div className="relative w-7 h-7 mb-2 opacity-50 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 flex items-center justify-center">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={item.icon}
-                                                alt={item.name}
-                                                width={28}
-                                                height={28}
-                                                className="object-contain w-full h-full"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        <span className="text-[10px] font-medium text-[#8B95A9] group-hover:text-[#E5E7EB] transition-colors text-center">
-                                            {item.name}
-                                        </span>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
+                                <div className="flex flex-wrap gap-3">
+                                    {group.items.map((item, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            whileHover={{
+                                                y: -4,
+                                                scale: 1.04,
+                                            }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 280,
+                                                damping: 18,
+                                                delay: i * 0.03,
+                                            }}
+                                            className="tech-card flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-black/[0.06] bg-[#F9F9F6] group cursor-default"
+                                        >
+                                            <div className="tech-icon relative w-6 h-6 opacity-70 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img
+                                                    src={item.icon}
+                                                    alt={item.name}
+                                                    width={24}
+                                                    height={24}
+                                                    className="object-contain w-full h-full"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <span className="text-xs font-semibold text-[#52525B] group-hover:text-[#18181B] transition-colors duration-300">
+                                                {item.name}
+                                            </span>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

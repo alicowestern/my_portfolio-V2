@@ -80,13 +80,13 @@ export default function Hero() {
                         className="flex-1 space-y-8 text-center md:text-left"
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight font-[family-name:var(--font-syne)] min-h-[140px] md:min-h-0">
-                            <span className="text-[#E5E7EB] block mb-2">Turning complex requirements </span>
+                            <span className="text-[#18181B] block mb-2">Turning complex requirements </span>
                             <span className={`text-gradient ${isTyping ? 'typewriter-cursor' : ''}`}>
                                 {typedText}
                             </span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-[#8B95A9] leading-relaxed max-w-xl mx-auto md:mx-0">
+                        <p className="text-lg md:text-xl text-[#52525B] leading-relaxed max-w-xl mx-auto md:mx-0">
                             {personalInfo.subHeadline}
                         </p>
 
@@ -99,7 +99,7 @@ export default function Hero() {
                             <a
                                 href="#projects"
                                 onClick={scrollToProjects}
-                                className="group flex items-center gap-2 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0A0F1A] px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] hover:scale-105 transition-all"
+                                className="group flex items-center gap-2 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] hover:scale-105 transition-all"
                             >
                                 View Projects
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -108,7 +108,7 @@ export default function Hero() {
                                 href={personalInfo.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-[#E5E7EB] glass-card hover:border-[#38BDF8]/30 transition-all"
+                                className="flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-[#18181B] glass-card hover:border-[#38BDF8]/30 transition-all"
                             >
                                 <Github size={18} />
                                 GitHub
@@ -149,7 +149,7 @@ export default function Hero() {
                             {/* Inner border */}
                             <div className="absolute inset-0 rounded-full border border-white/10" />
 
-                            <div className="relative w-full h-full overflow-hidden rounded-full border-2 border-[#0A0F1A] shadow-2xl bg-[#0F1629]">
+                            <div className="relative w-full h-full overflow-hidden rounded-full border-2 border-[#0A0F1A] shadow-2xl bg-white">
                                 <Image
                                     src={personalInfo.profileImage}
                                     alt={personalInfo.name}
@@ -164,13 +164,13 @@ export default function Hero() {
             </div>
 
             {/* Scroll Indicator */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2"
             >
-                <span className="text-[10px] font-medium text-[#8B95A9] tracking-[0.2em] uppercase">Scroll</span>
+                <span className="text-[10px] font-medium text-[#52525B] tracking-[0.2em] uppercase">Scroll</span>
                 <div className="w-8 h-12 rounded-full border border-white/10 flex justify-center p-1 bg-white/[0.02] backdrop-blur-sm">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-bounce-gentle mt-1" />
                 </div>

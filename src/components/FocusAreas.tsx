@@ -53,7 +53,7 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
 
 export default function FocusAreas() {
     return (
-        <section id="focus" className="scroll-mt-24 py-24 px-6 bg-[#0A0F1A] relative">
+        <section id="focus" className="scroll-mt-24 py-24 px-6 bg-[#F5F5F0] relative">
             <div className="container mx-auto max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export default function FocusAreas() {
                     className="mb-16"
                 >
                     <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Expertise</span>
-                    <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#E5E7EB] mb-4">What I Focus On</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">What I Focus On</h2>
                     <div className="h-1 w-16 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full"></div>
                 </motion.div>
 
@@ -84,10 +84,10 @@ export default function FocusAreas() {
                                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#38BDF8]/10 to-[#818CF8]/10 flex items-center justify-center mb-6 group-hover:from-[#38BDF8]/20 group-hover:to-[#818CF8]/20 transition-all">
                                             <Icon size={24} className="text-[#38BDF8]" />
                                         </div>
-                                        <h3 className="text-lg font-bold text-[#E5E7EB] mb-4 group-hover:text-gradient transition-colors font-[family-name:var(--font-syne)]">
+                                        <h3 className="text-lg font-bold text-[#18181B] mb-4 group-hover:text-gradient transition-colors font-[family-name:var(--font-syne)]">
                                             {area.title}
                                         </h3>
-                                        <p className="text-[#8B95A9] leading-relaxed text-sm">
+                                        <p className="text-[#52525B] leading-relaxed text-sm">
                                             {area.description}
                                         </p>
                                     </div>

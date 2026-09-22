@@ -4,7 +4,7 @@ import { personalInfo, socialLinks } from "@/data";
 
 export default function Footer() {
     return (
-        <footer className="relative py-12 px-6 bg-[#0A0F1A] overflow-hidden">
+        <footer className="relative py-12 px-6 bg-[#F5F5F0] overflow-hidden">
             {/* Gradient Divider */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
@@ -17,7 +17,7 @@ export default function Footer() {
                     >
                         Ale&apos;s Dev
                     </Link>
-                    <div className="text-[#8B95A9] text-sm">
+                    <div className="text-[#52525B] text-sm">
                         (c) {new Date().getFullYear()} All rights reserved.
                     </div>
                 </div>
@@ -29,7 +29,7 @@ export default function Footer() {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-white/[0.03] p-3 rounded-full border border-white/5 text-[#8B95A9] hover:text-[#38BDF8] hover:border-[#38BDF8]/30 hover:bg-[#38BDF8]/5 transition-all flex items-center justify-center group"
+                            className="bg-black/[0.02] p-3 rounded-full border border-black/5 text-[#52525B] hover:text-[#38BDF8] hover:border-[#38BDF8]/30 hover:bg-[#38BDF8]/5 transition-all flex items-center justify-center group"
                             aria-label={link.name}
                         >
                             {typeof link.icon === "string" ? (

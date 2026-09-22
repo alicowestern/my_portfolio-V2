@@ -73,7 +73,7 @@ export default function CTA() {
     }, [isFormOpen]);
 
     return (
-        <section id="contact" className="scroll-mt-24 py-24 px-6 bg-[#0A0F1A] relative">
+        <section id="contact" className="scroll-mt-24 py-24 px-6 bg-[#F5F5F0] relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
             <div className="container mx-auto max-w-4xl">
@@ -86,11 +86,11 @@ export default function CTA() {
                     {/* Section Heading */}
                     <div className="text-center mb-12">
                         <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Get In Touch</span>
-                        <h2 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-syne)] text-[#E5E7EB] mb-4">
+                        <h2 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">
                             Ready to build something{" "}
                             <span className="text-gradient">impactful?</span>
                         </h2>
-                        <p className="text-base md:text-lg text-[#8B95A9] max-w-xl mx-auto leading-relaxed">
+                        <p className="text-base md:text-lg text-[#52525B] max-w-xl mx-auto leading-relaxed">
                             Whether you have a clear idea or just a rough problem statement, I&rsquo;m ready to help you analyze, design, and build the solution.
                         </p>
                         <div className="mt-6 flex items-center justify-center gap-4">
@@ -100,7 +100,7 @@ export default function CTA() {
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-11 h-11 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-[#8B95A9] hover:text-[#38BDF8] hover:border-[#38BDF8]/40 hover:bg-[#38BDF8]/5 transition-all"
+                                    className="w-11 h-11 rounded-full border border-white/10 bg-white/[0.02] flex items-center justify-center text-[#52525B] hover:text-[#38BDF8] hover:border-[#38BDF8]/40 hover:bg-[#38BDF8]/5 transition-all"
                                     aria-label={link.name}
                                 >
                                     {typeof link.icon === "string" ? (
@@ -125,7 +125,7 @@ export default function CTA() {
                             <button
                                 type="button"
                                 onClick={() => setIsFormOpen(true)}
-                                className="inline-flex items-center gap-2 border border-white/10 text-[#E5E7EB] px-6 py-3 rounded-full text-sm font-semibold hover:border-[#38BDF8]/40 hover:text-[#38BDF8] transition-all"
+                                className="inline-flex items-center gap-2 border border-white/10 text-[#18181B] px-6 py-3 rounded-full text-sm font-semibold hover:border-[#38BDF8]/40 hover:text-[#38BDF8] transition-all"
                             >
                                 Say Hello
                                 <ArrowRight size={16} />
@@ -152,7 +152,7 @@ export default function CTA() {
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {/* Name */}
                                     <div className="space-y-2">
-                                        <label htmlFor="contact-name" className="block text-sm font-medium text-[#8B95A9]">
+                                        <label htmlFor="contact-name" className="block text-sm font-medium text-[#52525B]">
                                             Your Name
                                         </label>
                                         <input
@@ -161,14 +161,14 @@ export default function CTA() {
                                             required
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#E5E7EB] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
+                                            className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-white/10 text-[#18181B] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
                                             placeholder="John Doe"
                                             disabled={status === "loading"}
                                         />
                                     </div>
                                     {/* Email */}
                                     <div className="space-y-2">
-                                        <label htmlFor="contact-email" className="block text-sm font-medium text-[#8B95A9]">
+                                        <label htmlFor="contact-email" className="block text-sm font-medium text-[#52525B]">
                                             Your Email
                                         </label>
                                         <input
@@ -177,7 +177,7 @@ export default function CTA() {
                                             required
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#E5E7EB] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
+                                            className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-white/10 text-[#18181B] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
                                             placeholder="john@example.com"
                                             disabled={status === "loading"}
                                         />
@@ -186,7 +186,7 @@ export default function CTA() {
 
                                 {/* Message */}
                                 <div className="space-y-2">
-                                    <label htmlFor="contact-message" className="block text-sm font-medium text-[#8B95A9]">
+                                    <label htmlFor="contact-message" className="block text-sm font-medium text-[#52525B]">
                                         Message
                                     </label>
                                     <textarea
@@ -195,7 +195,7 @@ export default function CTA() {
                                         rows={5}
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#E5E7EB] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all resize-none"
+                                        className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-white/10 text-[#18181B] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all resize-none"
                                         placeholder="Tell me about your project or idea..."
                                         disabled={status === "loading"}
                                     />
@@ -208,7 +208,7 @@ export default function CTA() {
                                         whileHover={{ scale: status === "loading" ? 1 : 1.03 }}
                                         whileTap={{ scale: status === "loading" ? 1 : 0.97 }}
                                         disabled={status === "loading"}
-                                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#0A0F1A] px-8 py-3.5 rounded-full font-bold text-base hover:shadow-[0_0_40px_rgba(56,189,248,0.3)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed"
+                                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold text-base hover:shadow-[0_0_40px_rgba(56,189,248,0.3)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed"
                                     >
                                         {status === "loading" ? (
                                             <>
@@ -236,7 +236,7 @@ export default function CTA() {
 
                                     <a
                                         href="mailto:alicox2024@gmail.com"
-                                        className="inline-flex items-center gap-2 text-sm text-[#8B95A9] hover:text-[#38BDF8] transition-colors"
+                                        className="inline-flex items-center gap-2 text-sm text-[#52525B] hover:text-[#38BDF8] transition-colors"
                                     >
                                         <Mail size={16} />
                                         alicox2024@gmail.com

@@ -84,7 +84,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${syne.variable} font-sans antialiased bg-[#0A0F1A] text-[#E5E7EB] selection:bg-[#38BDF8] selection:text-[#0A0F1A]`}
+        className={`${inter.variable} ${syne.variable} font-sans antialiased bg-[#F5F5F0] text-[#18181B] selection:bg-[#38BDF8] selection:text-white`}
       >
         {children}
       </body>
