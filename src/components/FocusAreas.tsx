@@ -78,7 +78,7 @@ export default function FocusAreas() {
                                 viewport={{ once: true }}
                                 whileHover={{ y: -8 }}
                                 transition={{ type: "spring", stiffness: 100, damping: 15, delay: index * 0.1 }}
-                                className="min-w-[85vw] snap-center md:min-w-0 flex-shrink-0"
+                                className="w-[85vw] max-w-[340px] snap-center md:w-auto md:max-w-none md:min-w-0 flex-shrink-0"
                             >
                                 <SpotlightCard className="glass-card rounded-2xl p-8 h-full group">
                                     <div className="relative z-10">
