@@ -4,7 +4,7 @@ import { personalInfo, socialLinks } from "@/data";
 
 export default function Footer() {
     return (
-        <footer className="relative py-12 px-6 bg-[#F5F5F0] overflow-hidden">
+        <footer className="relative py-12 px-6 overflow-hidden">
             {/* Gradient Divider */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 

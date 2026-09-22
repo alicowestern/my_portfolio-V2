@@ -187,7 +187,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
 export default function Projects() {
     return (
-        <section id="projects" className="scroll-mt-24 py-24 px-6 bg-[#F5F5F0]">
+        <section id="projects" className="scroll-mt-24 py-24 px-6">
             <div className="container mx-auto max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

@@ -53,7 +53,7 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
 
 export default function FocusAreas() {
     return (
-        <section id="focus" className="scroll-mt-24 py-24 px-6 bg-[#F5F5F0] relative">
+        <section id="focus" className="scroll-mt-24 py-24 px-6 relative">
             <div className="container mx-auto max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

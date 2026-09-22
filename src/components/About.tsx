@@ -41,7 +41,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="scroll-mt-24 py-24 px-6 bg-[#F5F5F0] relative">
+        <section id="about" className="scroll-mt-24 py-24 px-6 relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
             <div className="container mx-auto max-w-3xl">
