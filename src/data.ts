@@ -9,7 +9,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
     cvUrl: "/Alem-Desta-CV.pdf",
     profileImage: "/profile.jpg",
-    about: "I am a 5th-year Software Engineering student with a deep interest in full-stack development and requirements analysis. I have engineered enterprise-grade systems for organizations like the Commercial Bank of Ethiopia and INSA, delivering production-ready solutions that handle real-world security, compliance, and operational challenges. My approach is heavily influenced by my experience volunteering with humanitarian NGOs, where I learned to work with unclear requirements and build critical solutions for real users. I focus on clarity, usability, and structured thinking—ensuring that every line of code serves a clear human need."
+    about: "I'm a 5th-year Software Engineering student specializing in full-stack development and requirements analysis. Having engineered secure, enterprise systems for the Commercial Bank of Ethiopia and INSA, I deliver production-ready solutions for complex challenges. Volunteering with NGOs taught me to transform unclear requirements into critical tools for real users. I prioritize clarity, usability, and structured thinking—ensuring every line of code serves a human need."
 };
 
 export const focusAreas = [
@@ -53,17 +53,17 @@ export const processSteps = [
 // Tech Stack Dictionary with Icons
 export const techStack = {
     React: { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-    NextJS: { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
+    NextJS: { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/000000" },
     TypeScript: { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
     Tailwind: { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
     FramerMotion: { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer/0055FF" },
     SpringBoot: { name: "Spring Boot", icon: "https://cdn.simpleicons.org/springboot/6DB33F" },
     Figma: { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
     Git: { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
-    GitHub: { name: "GitHub", icon: "https://cdn.simpleicons.org/github/white" },
+    GitHub: { name: "GitHub", icon: "https://cdn.simpleicons.org/github/000000" },
     Swagger: { name: "Swagger", icon: "https://cdn.simpleicons.org/swagger/85EA2D" },
     Trello: { name: "Trello", icon: "https://cdn.simpleicons.org/trello/0052CC" },
-    Express: { name: "Express", icon: "https://cdn.simpleicons.org/express/white" },
+    Express: { name: "Express", icon: "https://cdn.simpleicons.org/express/000000" },
     Python: { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
     Pandas: { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas/150458" },
     D3: { name: "D3.js", icon: "https://cdn.simpleicons.org/d3/F9A03C" },
@@ -71,7 +71,7 @@ export const techStack = {
     MongoDB: { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
     Jira: { name: "Jira", icon: "https://cdn.simpleicons.org/jira/0052CC" },
     Vite: { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
-    Java: { name: "Java", icon: "https://cdn.simpleicons.org/openjdk/white" },
+    Java: { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
     Keycloak: { name: "Keycloak", icon: "https://cdn.simpleicons.org/keycloak/4D4D4D" },
     Maven: { name: "Maven", icon: "https://cdn.simpleicons.org/apachemaven/C71A36" },
     SpringSecurity: { name: "Spring Security", icon: "https://cdn.simpleicons.org/springsecurity/6DB33F" },
