@@ -72,7 +72,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                                     href={project.demoUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:scale-105 transition-all"
+                                    className="flex items-center gap-2 bg-gradient-to-r from-[#FF0080] to-[#7928CA] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_20px_rgba(255,0,128,0.4)] hover:scale-105 transition-all"
                                 >
                                     <ExternalLink size={14} />
                                     Live

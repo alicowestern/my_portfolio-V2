@@ -98,7 +98,7 @@ export default function Hero() {
                             <a
                                 href="#projects"
                                 onClick={scrollToProjects}
-                                className="group flex items-center gap-2 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] hover:scale-105 transition-all"
+                                className="group flex items-center gap-2 bg-gradient-to-r from-[#FF0080] to-[#7928CA] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(255,0,128,0.4)] hover:scale-105 transition-all"
                             >
                                 View Projects
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

@@ -67,7 +67,7 @@ export default function FocusAreas() {
                     <div className="h-1 w-16 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full"></div>
                 </motion.div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 pb-6 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {focusAreas.map((area, index) => {
                         const Icon = icons[index];
                         return (
@@ -78,6 +78,7 @@ export default function FocusAreas() {
                                 viewport={{ once: true }}
                                 whileHover={{ y: -8 }}
                                 transition={{ type: "spring", stiffness: 100, damping: 15, delay: index * 0.1 }}
+                                className="min-w-[85vw] snap-center md:min-w-0 flex-shrink-0"
                             >
                                 <SpotlightCard className="glass-card rounded-2xl p-8 h-full group">
                                     <div className="relative z-10">
