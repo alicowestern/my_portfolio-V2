@@ -39,7 +39,7 @@ export default function Tools() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ type: "spring", stiffness: 80, damping: 18, delay: groupIndex * 0.08 }}
-                                className="gradient-ring rounded-2xl p-6 md:p-8 bg-white border border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-transparent transition-all duration-500"
+                                className="rounded-2xl p-6 md:p-8 bg-white border border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-transparent transition-all duration-500"
                             >
                                 <h3 className="text-xs font-bold text-[#3F3F46] uppercase tracking-widest mb-5 flex items-center gap-2.5">
                                     <div
@@ -51,24 +51,11 @@ export default function Tools() {
 
                                 <div className="flex flex-wrap gap-3">
                                     {group.items.map((item, i) => (
-                                        <motion.div
+                                        <div
                                             key={i}
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            viewport={{ once: true }}
-                                            whileHover={{
-                                                y: -4,
-                                                scale: 1.04,
-                                            }}
-                                            transition={{
-                                                type: "spring",
-                                                stiffness: 280,
-                                                damping: 18,
-                                                delay: i * 0.03,
-                                            }}
                                             className="tech-card flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-black/[0.06] bg-[#F9F9F6] group cursor-default"
                                         >
-                                            <div className="tech-icon relative w-6 h-6 opacity-70 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                                            <div className="tech-icon relative w-6 h-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                                 <img
                                                     src={item.icon}
@@ -82,7 +69,7 @@ export default function Tools() {
                                             <span className="text-xs font-semibold text-[#52525B] group-hover:text-[#18181B] transition-colors duration-300">
                                                 {item.name}
                                             </span>
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </motion.div>

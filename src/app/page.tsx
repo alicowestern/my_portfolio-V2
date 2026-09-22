@@ -7,7 +7,6 @@ import RealWorldContext from "@/components/RealWorldContext";
 import Tools from "@/components/Tools";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
-import Education from "@/components/Education";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -25,7 +24,6 @@ export default function Home() {
       <RealWorldContext />
       <Experience />
       <Tools />
-      <Education />
       <About />
       <CTA />
       <Footer />
