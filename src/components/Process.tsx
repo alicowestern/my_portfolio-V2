@@ -11,6 +11,20 @@ export default function Process() {
             {/* Subtle section divider glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
+            {/* Grid Pattern */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "64px 64px",
+                    maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%)",
+                }}
+            />
+
             <div className="container mx-auto max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

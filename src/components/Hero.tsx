@@ -33,7 +33,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-screen pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden flex flex-col justify-center">
+        <section className="relative h-[calc(100vh-80px)] min-h-[500px] md:min-h-[600px] pt-12 md:pt-20 pb-10 px-6 overflow-hidden flex flex-col justify-center">
 
             {/* Aurora Background */}
             <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
@@ -62,10 +62,15 @@ export default function Hero() {
 
             {/* Grid Pattern */}
             <div
-                className="absolute inset-0 pointer-events-none opacity-[0.03]"
+                className="absolute inset-0 pointer-events-none"
                 style={{
-                    backgroundImage: `linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px)`,
-                    backgroundSize: "60px 60px",
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "64px 64px",
+                    maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%)",
                 }}
             />
 
@@ -78,7 +83,7 @@ export default function Hero() {
                         transition={{ type: "spring", stiffness: 80, damping: 20 }}
                         className="flex-1 space-y-8 text-left max-w-4xl"
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight font-[family-name:var(--font-syne)] min-h-[140px] md:min-h-0">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight font-[family-name:var(--font-syne)] min-h-[120px] md:min-h-0">
                             <motion.span 
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -92,7 +97,7 @@ export default function Hero() {
                             </span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-[#52525B] leading-relaxed max-w-2xl">
+                        <p className="text-base md:text-lg text-[#52525B] leading-relaxed max-w-2xl">
                             {personalInfo.subHeadline}
                         </p>
 
@@ -100,7 +105,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, type: "spring", stiffness: 80 }}
-                            className="flex flex-wrap items-center justify-start gap-6 pt-6"
+                            className="flex flex-wrap items-center justify-start gap-6 pt-4"
                         >
                             <a
                                 href="#projects"
