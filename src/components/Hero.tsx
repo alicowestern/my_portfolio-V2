@@ -60,19 +60,7 @@ export default function Hero() {
                 />
             </div>
 
-            {/* Grid Pattern */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "64px 64px",
-                    maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%)",
-                    WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%)",
-                }}
-            />
+
 
             <div className="container mx-auto max-w-5xl relative z-10 flex-grow flex items-center">
                 <div className="flex flex-col items-start justify-center w-full mt-10 md:mt-16">
