@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, ArrowRight, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
@@ -163,7 +163,7 @@ export default function CTA() {
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-white/10 text-[#18181B] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
-                                            placeholder="John Doe"
+                                            placeholder="Ales Dev"
                                             disabled={status === "loading"}
                                         />
                                     </div>
@@ -179,7 +179,7 @@ export default function CTA() {
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-white/10 text-[#18181B] placeholder-[#8B95A9]/50 focus:outline-none focus:border-[#38BDF8]/50 focus:ring-1 focus:ring-[#38BDF8]/30 transition-all"
-                                            placeholder="john@example.com"
+                                            placeholder="contact@alesdev.com"
                                             disabled={status === "loading"}
                                         />
                                     </div>

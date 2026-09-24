@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 
@@ -17,21 +17,35 @@ const syne = Syne({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
+export const viewport: Viewport = {
+  themeColor: "#F5F5F0",
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
   title: "Alem Desta | Software Engineer",
   description: "Explore the portfolio of Alem Desta, a top software engineer and full-stack developer specializing in React, Next.js, and Java Spring Boot. Delivering enterprise-grade, secure systems.",
   metadataBase: new URL(siteUrl),
   keywords: [
-    "Alem Desta", 
-    "Best software engineer portfolio", 
-    "Top Full Stack Developer", 
-    "Software Engineer Ethiopia", 
-    "Java Spring Boot Developer", 
-    "React Developer", 
-    "Next.js Portfolio", 
-    "Enterprise Software Engineer", 
-    "Tech Portfolio Inspiration",
-    "Creative Developer Portfolio"
+    "Alem Desta portfolio",
+    "Alem Desta software engineer",
+    "Alem Desta full-stack developer",
+    "Software engineer portfolio",
+    "Full-stack developer portfolio",
+    "Best software engineer portfolio",
+    "Best developer portfolio",
+    "Modern software engineer portfolio",
+    "Professional software developer portfolio",
+    "Software engineering portfolio",
+    "Full-stack development portfolio",
+    "React developer portfolio",
+    "Spring Boot developer portfolio",
+    "Java developer portfolio",
+    "Next.js developer portfolio",
+    "TypeScript developer portfolio",
+    "Software engineer Ethiopia",
+    "Full-stack developer Ethiopia",
+    "Software developer Addis Ababa"
   ],
   authors: [{ name: "Alem Desta" }],
   creator: "Alem Desta",
@@ -92,6 +106,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta name="color-scheme" content="light only" />
+        <meta name="supported-color-schemes" content="light" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
