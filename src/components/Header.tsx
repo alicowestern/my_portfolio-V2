@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Github, FileText } from "lucide-react";
@@ -72,9 +72,9 @@ export default function Header() {
                             href={personalInfo.cvUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hidden md:flex items-center gap-2 text-sm font-medium text-[#FAFAFA] bg-gradient-to-r from-[#38BDF8] to-[#818CF8] px-4 py-2 rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] transition-all hover:scale-105"
+                            className="hidden md:flex items-center gap-2 text-sm font-medium text-[#FAFAFA] bg-[#18181B] px-4 py-2 rounded-full shadow-sm hover:bg-black hover:shadow-md transition-all hover:-translate-y-0.5"
                         >
-                            <FileText size={14} />
+                            <FileText size={14} className="text-[#A1A1AA]" />
                             View Resume
                         </a>
                         {/* GitHub */}
@@ -154,14 +154,14 @@ export default function Header() {
                             </div>
 
                             {/* Bottom Actions */}
-                            <div className="px-4 pb-8 space-y-3 border-t border-black/5 pt-6">
+                            <div className="px-4 pb-8 space-y-3  pt-6">
                                 <a
                                     href={personalInfo.cvUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 text-sm font-bold text-[#FAFAFA] bg-gradient-to-r from-[#38BDF8] to-[#818CF8] px-4 py-3 rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] transition-all w-full"
+                                    className="flex items-center justify-center gap-2 text-sm font-bold text-[#FAFAFA] bg-[#18181B] px-4 py-3 rounded-full shadow-sm hover:bg-black hover:shadow-md transition-all w-full"
                                 >
-                                    <FileText size={16} />
+                                    <FileText size={16} className="text-[#A1A1AA]" />
                                     View Resume
                                 </a>
                                 <a
@@ -181,3 +181,4 @@ export default function Header() {
         </>
     );
 }
+

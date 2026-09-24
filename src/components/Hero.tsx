@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { ArrowRight, Github, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
@@ -98,7 +98,7 @@ export default function Hero() {
                             <a
                                 href="#projects"
                                 onClick={scrollToProjects}
-                                className="group flex items-center gap-2 bg-gradient-to-r from-[#FF0080] to-[#7928CA] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(255,0,128,0.4)] hover:scale-105 transition-all"
+                                className="group flex items-center gap-2 bg-[#18181B] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold shadow-sm hover:bg-black hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:scale-105 transition-all"
                             >
                                 View Projects
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -119,3 +119,4 @@ export default function Hero() {
         </section>
     );
 }
+
