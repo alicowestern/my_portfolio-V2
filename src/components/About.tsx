@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { User } from "lucide-react";
@@ -7,10 +7,13 @@ import { personalInfo } from "@/data";
 function Counter({ from, to, suffix = "", duration = 2 }: { from: number; to: number; suffix?: string; duration?: number }) {
     const [count, setCount] = useState(from);
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
 
     useEffect(() => {
-        if (!isInView) return;
+        if (!isInView) {
+            setCount(from);
+            return;
+        }
 
         let startTime: number | null = null;
         const animate = (timestamp: number) => {
@@ -33,6 +36,37 @@ function Counter({ from, to, suffix = "", duration = 2 }: { from: number; to: nu
     return <span ref={ref}>{count}{suffix}</span>;
 }
 
+function TypewriterText({ text, speed = 15 }: { text: string; speed?: number }) {
+    const [displayedCount, setDisplayedCount] = useState(0);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false, margin: "-50px" });
+
+    useEffect(() => {
+        if (!isInView) {
+            setDisplayedCount(0);
+            return;
+        }
+
+        let i = 0;
+        const interval = setInterval(() => {
+            i++;
+            setDisplayedCount(i);
+            if (i >= text.length) clearInterval(interval);
+        }, speed);
+
+        return () => clearInterval(interval);
+    }, [isInView, text, speed]);
+
+    return (
+        <span ref={ref}>
+            <span>{text.slice(0, displayedCount)}</span>
+            {displayedCount < text.length && (
+                <span className="inline-block w-[2px] h-[1em] bg-[#38BDF8] ml-[1px] align-text-bottom animate-pulse" />
+            )}
+        </span>
+    );
+}
+
 export default function About() {
     const stats = [
         { value: 5, suffix: "th", label: "Year Student" },
@@ -48,7 +82,7 @@ export default function About() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ type: "spring", stiffness: 80, damping: 20 }}
                     className="text-center"
                 >
@@ -56,7 +90,7 @@ export default function About() {
                     <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
                         className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#38BDF8]/10 to-[#818CF8]/10 flex items-center justify-center mb-6"
                     >
@@ -67,8 +101,8 @@ export default function About() {
                     <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-10">About Me</h2>
 
                     <div className="glass-card rounded-2xl p-8 md:p-12 text-left">
-                        <p className="text-base md:text-lg text-[#52525B] leading-[1.8]">
-                            {personalInfo.about}
+                        <p className="text-xl md:text-2xl leading-relaxed text-[#18181B] font-[family-name:var(--font-syne)] font-medium">
+                            <TypewriterText text={personalInfo.about} speed={12} />
                         </p>
 
                         {/* Stats row */}
@@ -78,12 +112,12 @@ export default function About() {
                                     key={i}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: false }}
                                     transition={{ delay: 0.3 + i * 0.1 }}
                                     className="text-center"
                                 >
                                     <div className="text-2xl font-bold text-gradient font-[family-name:var(--font-syne)]">
-                                        <Counter from={0} to={stat.value} suffix={stat.suffix} />
+                                        <Counter from={1} to={stat.value} suffix={stat.suffix} />
                                     </div>
                                     <div className="text-xs text-[#52525B] mt-1">{stat.label}</div>
                                 </motion.div>
@@ -95,4 +129,3 @@ export default function About() {
         </section>
     );
 }
-

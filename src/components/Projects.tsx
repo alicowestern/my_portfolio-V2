@@ -160,7 +160,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                                         href={project.demoUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 bg-gradient-to-r from-[#FF0080] to-[#7928CA] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_20px_rgba(255,0,128,0.4)] hover:scale-105 transition-all"
+                                        className="flex items-center gap-2 bg-[#18181B] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold hover:bg-black hover:shadow-md hover:scale-105 transition-all"
                                     >
                                         <ExternalLink size={14} />
                                         Live
@@ -206,6 +206,13 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                             </div>
                         )}
 
+                        {/* Content */}
+                        <div>
+                            <p className="text-[#52525B] text-[15px] leading-relaxed">
+                                {project.description}
+                            </p>
+                        </div>
+
                         {/* See More Button */}
                         {project.media && (
                             <button
@@ -217,31 +224,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                             </button>
                         )}
 
-                        {/* Content */}
-                        <div className="space-y-6">
-                            <div>
-                                <h4 className="text-xs uppercase tracking-widest text-[#38BDF8] font-bold mb-2">Problem</h4>
-                                <p className="text-[#52525B] text-sm leading-relaxed">{project.problem}</p>
-                            </div>
-
-                            <div className="grid md:grid-cols-3 gap-6">
-                                <div>
-                                    <h4 className="text-xs uppercase tracking-widest text-[#60A5FA] font-bold mb-2">Requirements</h4>
-                                    <p className="text-[#52525B] text-sm leading-relaxed">{project.requirements}</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-xs uppercase tracking-widest text-[#818CF8] font-bold mb-2">Solution</h4>
-                                    <p className="text-[#52525B] text-sm leading-relaxed">{project.solution}</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-xs uppercase tracking-widest text-[#34D399] font-bold mb-2">Outcome</h4>
-                                    <p className="text-[#52525B] text-sm leading-relaxed">{project.outcome}</p>
-                                </div>
-                            </div>
-                        </div>
-
                         {/* Tech Stack */}
-                        <div className="pt-5 mt-3">
+                        <div className="pt-2">
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A1A1AA] mb-3 block">Built With</span>
                             <div className="flex flex-wrap gap-2.5 items-center">
                                 {project.tech.map((tech, i) => (

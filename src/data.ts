@@ -9,7 +9,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
     cvUrl: "/Alem-Desta-CV.pdf",
     profileImage: "/profile.jpg",
-    about: "I'm a 5th-year Software Engineering student specializing in full-stack development and requirements analysis. Having engineered secure, enterprise systems for the Commercial Bank of Ethiopia and INSA, I deliver production-ready solutions for complex challenges. Volunteering with NGOs taught me to transform unclear requirements into critical tools for real users. I prioritize clarity, usability, and structured thinking—ensuring every line of code serves a human need."
+    about: "I'm a 5th-year Software Engineering student specializing in full-stack development and requirements analysis. Having engineered secure, enterprise systems for the Commercial Bank of Ethiopia and INSA, I deliver production-ready solutions for complex challenges. Volunteering with NGOs taught me to transform unclear requirements into critical tools for real users. I prioritize clarity, usability, and structured thinking - ensuring every line of code serves a human need."
 };
 
 export const focusAreas = [
@@ -105,10 +105,7 @@ export const projects = [
         role: "Full Stack Developer",
         timeline: "",
         team: "",
-        problem: "Poultry farming operations and farmer services required a streamlined digital platform to manage operations efficiently.",
-        requirements: "A fast, accessible web application for showcasing services, managing orders, and providing agricultural information.",
-        solution: "Developed a comprehensive web platform for poultry farming services with a focus on usability and performance.",
-        outcome: "Enhanced operational efficiency and improved access to farmer services.",
+        description: "Developed a full-stack web platform to streamline poultry farming operations, manage orders, and provide agricultural information. The application significantly improved operational efficiency and enhanced access to farmer services.",
         tech: [techStack.NextJS, techStack.React, techStack.Tailwind],
         link: "https://github.com/alicowestern/my_chicken_addis",
         demoUrl: "https://my-chicken-addis-chi.vercel.app/",
@@ -119,10 +116,7 @@ export const projects = [
         role: "Full-Stack Developer / Software Engineer",
         timeline: "",
         team: "Commercial Bank of Ethiopia (CBE)",
-        problem: "Before SeeHere, tracking ATM statuses, coordinating maintenance, and managing branch contacts was manual, leading to delays in ATM servicing and scattered data.",
-        requirements: "A secure, scalable, and centralized ATM Management System to digitize tracking, maintenance, and administrative management of the ATM network on the bank's LAN.",
-        solution: "Developed a dynamic SSR frontend with Next.js and a Java Spring Boot backend with Role-Based Access Control, comprehensive audit logging, and a secure LAN deployment using Caddy.",
-        outcome: "Delivered a system that significantly improved the bank's operational efficiency and hardware downtime response by replacing fragmented manual tracking.",
+        description: "Engineered a secure, centralized ATM Management System for the Commercial Bank of Ethiopia (CBE) to replace fragmented manual tracking. Built with Java Spring Boot and Next.js, the system features strict Role-Based Access Control and audit logging on the bank's LAN, significantly improving hardware downtime response.",
         tech: [techStack.NextJS, techStack.React, techStack.TypeScript, techStack.Tailwind, techStack.SpringBoot, techStack.PostgreSQL],
         link: "https://github.com/alicowestern/SeeHere",
         demoUrl: "Deployed on CBE LAN",
@@ -141,10 +135,7 @@ export const projects = [
         role: "Sole Full-Stack Developer",
         timeline: "",
         team: "INSA (Information Network Security Administration)",
-        problem: "INSA needed a secure, enterprise-grade system to strictly manage hardware device exit controls, multi-level approvals, and audit trails — replacing manual processes at a national security agency.",
-        requirements: "A full-stack device exit control system with device registration, multi-level exit approvals, comprehensive audit logging, external ERP synchronization, automated document generation (PDF, Excel, Word), and Keycloak-based identity management.",
-        solution: "Engineered the entire system solo — from authoring a 55-page SRS document through to deployment. Built a Java 17/Spring Boot 3.2 backend with Keycloak OAuth2, Resilience4j circuit breakers for ERP integration, and a React 19/Vite frontend with TanStack Query, Chart.js/Recharts dashboards, and strict RBAC.",
-        outcome: "Delivered a production-ready, security-hardened system that digitized INSA's device exit workflow, enabling real-time tracking, automated reporting, and full regulatory compliance.",
+        description: "Architected and deployed a security-hardened device exit control system for INSA to digitize enterprise hardware management. Built entirely solo, the platform integrates a Java Spring Boot backend, Keycloak OAuth2, and external ERP synchronization with a React/Vite dashboard for real-time tracking and multi-level approvals.",
         tech: [techStack.Java, techStack.SpringBoot, techStack.React, techStack.Vite, techStack.TypeScript, techStack.Tailwind, techStack.PostgreSQL, techStack.Swagger],
         link: "#",
         demoUrl: "Deployed on INSA Internal Network",
@@ -160,7 +151,7 @@ export const projects = [
 ];
 
 export const realWorldContext = {
-    content: "My approach to software engineering was shaped by volunteering with NGOs in refugee camps—where I learned to navigate unclear requirements and build critical solutions with limited resources—and sharpened by engineering enterprise systems for the Commercial Bank of Ethiopia and INSA. From humanitarian fieldwork to national-security infrastructure, these experiences taught me that code is just a tool—the real skill is communication, prioritization, and truly understanding the human problem before writing a single character."
+    content: "My approach to software engineering was shaped by volunteering with NGOs in refugee camps - where I learned to navigate unclear requirements and build critical solutions with limited resources - and sharpened by engineering enterprise systems for the Commercial Bank of Ethiopia and INSA. From humanitarian fieldwork to national-security infrastructure, these experiences taught me that code is just a tool - the real skill is communication, prioritization, and truly understanding the human problem before writing a single character."
 };
 
 export const socialLinks = [

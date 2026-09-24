@@ -18,22 +18,34 @@ const syne = Syne({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
-  title: "Alem Desta | Full Stack Developer",
-  description: "Full Stack Developer and Software Engineering student. Transforming complex requirements into clean, accessible interfaces.",
+  title: "Alem Desta | Software Engineer",
+  description: "Explore the portfolio of Alem Desta, a top software engineer and full-stack developer specializing in React, Next.js, and Java Spring Boot. Delivering enterprise-grade, secure systems.",
   metadataBase: new URL(siteUrl),
-  keywords: ["Alem Desta", "Full Stack Developer", "Software Engineer", "Next.js", "React", "Spring Boot", "Ethiopia"],
+  keywords: [
+    "Alem Desta", 
+    "Best software engineer portfolio", 
+    "Top Full Stack Developer", 
+    "Software Engineer Ethiopia", 
+    "Java Spring Boot Developer", 
+    "React Developer", 
+    "Next.js Portfolio", 
+    "Enterprise Software Engineer", 
+    "Tech Portfolio Inspiration",
+    "Creative Developer Portfolio"
+  ],
   authors: [{ name: "Alem Desta" }],
   creator: "Alem Desta",
   openGraph: {
-    title: "Alem Desta | Full Stack Developer",
-    description: "Full Stack Developer focused on Requirement Analysis and UI/UX. View my projects and process.",
+    title: "Alem Desta | Software Engineer",
+    description: "Full Stack Developer focused on enterprise solutions, secure architectures, and modern UI/UX.",
     url: siteUrl,
-    siteName: "Alem Desta Portfolio",
+    siteName: "Alem Desta | Software Engineer",
     images: [
       {
-        url: "/profile.jpg", // Consider replacing with a dedicated OG image 1200x630
+        url: "/profile.jpg",
         width: 800,
         height: 600,
+        alt: "Alem Desta - Software Engineer"
       },
     ],
     locale: "en_US",
@@ -41,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alem Desta | Full Stack Developer",
-    description: "Full Stack Developer and Software Engineering student.",
+    title: "Alem Desta | Software Engineer",
+    description: "Top software engineer and full-stack developer.",
     images: ["/profile.jpg"],
   },
   robots: {
@@ -63,7 +75,9 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Alem Desta',
   url: siteUrl,
-  jobTitle: 'Full Stack Developer',
+  jobTitle: 'Software Engineer & Full Stack Developer',
+  description: 'Alem Desta is a top Software Engineer and Full Stack Developer based in Ethiopia, specializing in enterprise-grade systems, React, Next.js, and Java Spring Boot.',
+  knowsAbout: ['Software Engineering', 'Full Stack Development', 'React', 'Next.js', 'Java Spring Boot', 'Enterprise Security'],
   sameAs: [
     'https://github.com/alicowestern',
     'https://www.linkedin.com/in/alem-desta-73034137b'

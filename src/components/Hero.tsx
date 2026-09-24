@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import { ArrowRight, Github, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
@@ -69,9 +69,9 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                        className="flex-1 space-y-8 text-left max-w-4xl"
+                        className="flex-1 space-y-8 text-left max-w-2xl"
                     >
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight font-[family-name:var(--font-syne)] min-h-[120px] md:min-h-0">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight font-[family-name:var(--font-syne)] min-h-[120px] md:min-h-0">
                             <motion.span 
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
