@@ -33,57 +33,57 @@ function MediaModal({ project, onClose }: { project: typeof projects[0]; onClose
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 md:p-8"
+            className="fixed inset-0 z-[100] flex flex-col bg-black/95 backdrop-blur-md"
             onClick={onClose}
         >
             <motion.div
-                initial={{ scale: 0.92, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.92, opacity: 0 }}
+                exit={{ scale: 0.95, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="relative w-full max-w-5xl max-h-[90vh] flex flex-col items-center gap-4 pt-8"
+                className="relative w-full h-full flex flex-col"
                 onClick={e => e.stopPropagation()}
             >
-                {/* Close */}
-                <button onClick={onClose} className="absolute -top-2 -right-2 md:top-0 md:right-0 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-full transition-all">
-                    <X size={20} />
-                </button>
-
-                {/* Title */}
-                <h3 className="text-white font-bold text-lg font-[family-name:var(--font-syne)] text-center">{project.title}</h3>
+                {/* Top Bar */}
+                <div className="flex justify-between items-center p-4 md:px-8 w-full bg-[#18181B]">
+                    <h3 className="text-white font-bold text-lg font-[family-name:var(--font-syne)]">{project.title}</h3>
+                    <button onClick={onClose} className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors backdrop-blur-md">
+                        <X size={24} />
+                    </button>
+                </div>
 
                 {/* Media Display */}
-                <div className="w-full flex items-center justify-center rounded-2xl overflow-hidden bg-black/40 max-h-[65vh] p-2">
+                <div className="flex-1 w-full flex items-center justify-center p-4">
                     {item.type === "video" ? (
-                        <video src={item.src} autoPlay muted loop playsInline controls className="w-full max-h-[60vh] object-contain rounded-xl" />
+                        <video src={item.src} autoPlay muted loop playsInline controls className="max-w-full max-h-[calc(100vh-160px)] object-contain rounded-lg" />
                     ) : (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={item.src} alt={`${project.title} screenshot`} className="w-full max-h-[60vh] object-contain rounded-xl" />
+                        <img src={item.src} alt={`${project.title} screenshot`} className="max-w-full max-h-[calc(100vh-160px)] object-contain rounded-lg shadow-2xl" />
                     )}
                 </div>
 
-                {/* Thumbnail strip */}
-                {allMedia.length > 1 && (
-                    <div className="flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
-                        {allMedia.map((m, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setCurrent(idx)}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold transition-all whitespace-nowrap ${
-                                    idx === current
-                                        ? "bg-white text-black"
-                                        : "bg-white/10 text-white/60 hover:bg-white/20"
-                                }`}
-                            >
-                                {m.type === "video" ? <Play size={10} /> : <Images size={10} />}
-                                {m.type === "video" ? "Demo" : `Screenshot ${idx}`}
-                            </button>
-                        ))}
-                    </div>
-                )}
-
-                {/* Counter */}
-                <span className="text-white/50 text-xs">{current + 1} / {allMedia.length}</span>
+                {/* Thumbnail strip & Counter */}
+                <div className="w-full flex flex-col items-center justify-center pb-6 pt-2 gap-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                    {allMedia.length > 1 && (
+                        <div className="flex gap-2 overflow-x-auto px-4 [&::-webkit-scrollbar]:hidden">
+                            {allMedia.map((m, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrent(idx)}
+                                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all whitespace-nowrap ${
+                                        idx === current
+                                            ? "bg-white text-black"
+                                            : "bg-white/10 text-white/60 hover:bg-white/20"
+                                    }`}
+                                >
+                                    {m.type === "video" ? <Play size={12} /> : <Images size={12} />}
+                                    {m.type === "video" ? "Demo" : `Screenshot ${idx}`}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                    <span className="text-white/50 text-xs font-medium tracking-widest">{current + 1} / {allMedia.length}</span>
+                </div>
             </motion.div>
         </motion.div>
     );

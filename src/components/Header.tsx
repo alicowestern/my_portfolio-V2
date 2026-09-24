@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Github, FileText } from "lucide-react";
+import { Menu, X, Github, Eye, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { personalInfo } from "@/data";
 
@@ -16,6 +16,7 @@ const navLinks = [
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [showCvModal, setShowCvModal] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -25,13 +26,13 @@ export default function Header() {
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
-        if (mobileOpen) {
+        if (mobileOpen || showCvModal) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "";
         }
         return () => { document.body.style.overflow = ""; };
-    }, [mobileOpen]);
+    }, [mobileOpen, showCvModal]);
 
     return (
         <>
@@ -68,15 +69,14 @@ export default function Header() {
 
                     <div className="flex items-center gap-3">
                         {/* Resume Download */}
-                        <a
-                            href={personalInfo.cvUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        {/* Resume View */}
+                        <button
+                            onClick={() => setShowCvModal(true)}
                             className="hidden md:flex items-center gap-2 text-sm font-medium text-[#FAFAFA] bg-[#18181B] px-4 py-2 rounded-full shadow-sm hover:bg-black hover:shadow-md transition-all hover:-translate-y-0.5"
                         >
-                            <FileText size={14} className="text-[#A1A1AA]" />
+                            <Eye size={16} className="text-[#38BDF8]" />
                             View Resume
-                        </a>
+                        </button>
                         {/* GitHub */}
                         <a
                             href={personalInfo.github}
@@ -155,15 +155,16 @@ export default function Header() {
 
                             {/* Bottom Actions */}
                             <div className="px-4 pb-8 space-y-3  pt-6">
-                                <a
-                                    href={personalInfo.cvUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
+                                    onClick={() => {
+                                        setMobileOpen(false);
+                                        setShowCvModal(true);
+                                    }}
                                     className="flex items-center justify-center gap-2 text-sm font-bold text-[#FAFAFA] bg-[#18181B] px-4 py-3 rounded-full shadow-sm hover:bg-black hover:shadow-md transition-all w-full"
                                 >
-                                    <FileText size={16} className="text-[#A1A1AA]" />
+                                    <Eye size={18} className="text-[#38BDF8]" />
                                     View Resume
-                                </a>
+                                </button>
                                 <a
                                     href={personalInfo.github}
                                     target="_blank"
@@ -176,6 +177,56 @@ export default function Header() {
                             </div>
                         </motion.nav>
                     </>
+                )}
+            </AnimatePresence>
+
+            {/* CV Viewer Modal */}
+            <AnimatePresence>
+                {showCvModal && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex flex-col bg-black/95 backdrop-blur-md"
+                        onClick={() => setShowCvModal(false)}
+                    >
+                        {/* Top Bar */}
+                        <div className="flex justify-between items-center p-4 md:px-8 bg-[#18181B] w-full" onClick={(e) => e.stopPropagation()}>
+                            <h3 className="text-white font-bold text-lg font-[family-name:var(--font-syne)]">Resume</h3>
+                            
+                            <div className="flex items-center gap-4">
+                                <a 
+                                    href={personalInfo.cvUrl} 
+                                    download="Alem_Desta_Resume.pdf"
+                                    className="flex items-center gap-2 bg-[#38BDF8] text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#0284C7] transition-colors"
+                                >
+                                    <Download size={16} />
+                                    Download
+                                </a>
+                                <button
+                                    onClick={() => setShowCvModal(false)}
+                                    className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors backdrop-blur-md"
+                                >
+                                    <X size={24} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* PDF Viewer */}
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            className="flex-1 w-full bg-white relative"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <iframe 
+                                src={`${personalInfo.cvUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                                className="w-full h-full border-none"
+                                title="Resume Viewer"
+                            />
+                        </motion.div>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </>

@@ -116,7 +116,7 @@ export default function About() {
                                     transition={{ delay: 0.3 + i * 0.1 }}
                                     className="text-center"
                                 >
-                                    <div className="text-2xl font-bold text-gradient font-[family-name:var(--font-syne)]">
+                                    <div className="text-4xl md:text-5xl mb-2 font-bold text-[#38BDF8] font-[family-name:var(--font-syne)] drop-shadow-sm">
                                         <Counter from={1} to={stat.value} suffix={stat.suffix} />
                                     </div>
                                     <div className="text-xs text-[#52525B] mt-1">{stat.label}</div>

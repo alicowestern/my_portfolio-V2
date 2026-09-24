@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Target, Layers, Puzzle } from "lucide-react";
+import { Target, Layers, Puzzle, ArrowRight } from "lucide-react";
 import { focusAreas } from "@/data";
 
 const icons = [Target, Layers, Puzzle];
@@ -96,6 +96,17 @@ export default function FocusAreas() {
                             </motion.div>
                         );
                     })}
+                </div>
+
+                {/* Mobile Swipe Indicator */}
+                <div className="flex items-center justify-center gap-2 mt-4 md:hidden text-[#A1A1AA]">
+                    <span className="text-[10px] font-bold uppercase tracking-widest">Swipe to explore</span>
+                    <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    >
+                        <ArrowRight size={14} />
+                    </motion.div>
                 </div>
             </div>
         </section>
