@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Phone } from "lucide-react";
 export const personalInfo = {
     name: "Alem Desta",
     headline: "Designing solutions that start with understanding the problem.",
-    subHeadline: "5th-year Software Engineering student and Full-Stack Developer, focused on requirements analysis and building reliable, user-centered systems for real-world needs.",
+    subHeadline: "Alem Desta, 5th-year Software Engineering student and Full-Stack Developer, focused on requirements analysis and building reliable, user-centered systems for real-world needs.",
     email: "alicox2024@gmail.com",
     github: "https://github.com/alicowestern",
     linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
@@ -111,7 +111,8 @@ export const projects = [
         outcome: "Enhanced operational efficiency and improved access to farmer services.",
         tech: [techStack.NextJS, techStack.React, techStack.Tailwind],
         link: "https://github.com/alicowestern/my_chicken_addis",
-        demoUrl: "https://my-chicken-addis-chi.vercel.app/"
+        demoUrl: "https://my-chicken-addis-chi.vercel.app/",
+        media: null
     },
     {
         title: "SeeHere (CBE ATM Management System)",
@@ -124,7 +125,16 @@ export const projects = [
         outcome: "Delivered a system that significantly improved the bank's operational efficiency and hardware downtime response by replacing fragmented manual tracking.",
         tech: [techStack.NextJS, techStack.React, techStack.TypeScript, techStack.Tailwind, techStack.SpringBoot, techStack.PostgreSQL],
         link: "https://github.com/alicowestern/SeeHere",
-        demoUrl: "Deployed on CBE LAN"
+        demoUrl: "Deployed on CBE LAN",
+        media: {
+            video: "/SeeHere Screen Recording 2026-09-18 222541-compressed.mp4",
+            images: [
+                "/SeeHereDashboard.png",
+                "/SeeHereATMs.png",
+                "/SeeHereBranches.png",
+                "/SeeHereLogIn.png"
+            ]
+        }
     },
     {
         title: "Zebegna ዘበኛ (Device Exit Control System)",
@@ -137,7 +147,15 @@ export const projects = [
         outcome: "Delivered a production-ready, security-hardened system that digitized INSA's device exit workflow, enabling real-time tracking, automated reporting, and full regulatory compliance.",
         tech: [techStack.Java, techStack.SpringBoot, techStack.React, techStack.Vite, techStack.TypeScript, techStack.Tailwind, techStack.PostgreSQL, techStack.Swagger],
         link: "#",
-        demoUrl: "Deployed on INSA Internal Network"
+        demoUrl: "Deployed on INSA Internal Network",
+        media: {
+            video: "/Zebegna Screen Recording 2026-09-18 223621-compressed.mp4",
+            images: [
+                "/ZebegnaDashboard.png",
+                "/ZebegnaReportDashboard.png",
+                "/ZebegnaLogIn.png"
+            ]
+        }
     }
 ];
 
