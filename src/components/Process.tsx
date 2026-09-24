@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion } from "framer-motion";
 import { Search, FileSearch, Palette, Code, RefreshCw } from "lucide-react";
 import { processSteps } from "@/data";
@@ -7,7 +7,7 @@ const icons = [Search, FileSearch, Palette, Code, RefreshCw];
 
 export default function Process() {
     return (
-        <section id="process" className="scroll-mt-24 py-24 px-6 relative">
+        <section id="process" className="scroll-mt-24 py-12 md:py-16 px-6 relative">
             {/* Subtle section divider glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
@@ -107,3 +107,4 @@ export default function Process() {
         </section>
     );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, ArrowRight, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
@@ -73,7 +73,7 @@ export default function CTA() {
     }, [isFormOpen]);
 
     return (
-        <section id="contact" className="scroll-mt-24 py-24 px-6 relative">
+        <section id="contact" className="scroll-mt-24 py-12 md:py-16 px-6 relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
 
@@ -224,7 +224,7 @@ export default function CTA() {
                                         ) : status === "error" ? (
                                             <>
                                                 <AlertCircle size={18} />
-                                                Failed — Try Again
+                                                Failed â€” Try Again
                                             </>
                                         ) : (
                                             <>
@@ -277,3 +277,4 @@ export default function CTA() {
         </section>
     );
 }
+

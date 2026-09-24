@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
 export default function Experience() {
     return (
-        <section className="py-24 px-6 relative">
+        <section className="py-12 md:py-16 px-6 relative">
             <div className="container mx-auto max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ export default function Experience() {
                             
                             <div className="flex flex-wrap gap-2 mt-4">
                                 {["Java", "Spring Boot", "React", "PostgreSQL", "REST APIs", "Authentication & Authorization", "System Workflows", "Reporting", "Software Engineering Practices"].map((tech, i) => (
-                                    <span key={i} className="px-3 py-1 bg-black/[0.02] border border-black/5 rounded-full text-xs text-[#52525B] hover:text-[#18181B] hover:border-[#38BDF8]/20 transition-colors">
+                                    <span key={i} className="px-3 py-1 bg-black/[0.02] rounded-full text-xs text-[#52525B] hover:text-[#18181B] hover:border-[#38BDF8]/20 transition-colors">
                                         {tech}
                                     </span>
                                 ))}
@@ -60,3 +60,4 @@ export default function Experience() {
         </section>
     );
 }
+

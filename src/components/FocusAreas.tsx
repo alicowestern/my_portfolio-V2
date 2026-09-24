@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Target, Layers, Puzzle } from "lucide-react";
@@ -53,7 +53,7 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
 
 export default function FocusAreas() {
     return (
-        <section id="focus" className="scroll-mt-24 py-24 px-6 relative">
+        <section id="focus" className="scroll-mt-24 py-12 md:py-16 px-6 relative">
             <div className="container mx-auto max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -101,3 +101,4 @@ export default function FocusAreas() {
         </section>
     );
 }
+

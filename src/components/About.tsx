@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { User } from "lucide-react";
@@ -41,7 +41,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="scroll-mt-24 py-24 px-6 relative">
+        <section id="about" className="scroll-mt-24 py-12 md:py-16 px-6 relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
             <div className="container mx-auto max-w-3xl">
@@ -72,7 +72,7 @@ export default function About() {
                         </p>
 
                         {/* Stats row */}
-                        <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-black/5">
+                        <div className="grid grid-cols-3 gap-4 mt-10 pt-8 ">
                             {stats.map((stat, i) => (
                                 <motion.div
                                     key={i}
@@ -95,3 +95,4 @@ export default function About() {
         </section>
     );
 }
+
