@@ -18,7 +18,7 @@ export default function Tools() {
     return (
         <section className="py-12 md:py-16 px-0 md:px-6 relative overflow-hidden">
             {/* Section glow divider */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#818CF8]/20 to-transparent" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent" />
 
             <div className="container mx-auto max-w-5xl px-6 md:px-0">
                 <motion.div
@@ -28,7 +28,7 @@ export default function Tools() {
                     transition={{ type: "spring", stiffness: 80, damping: 20 }}
                     className="mb-12"
                 >
-                    <span className="text-[#818CF8] text-sm font-medium tracking-widest uppercase mb-3 block">Tech Stack</span>
+                    <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Tech Stack</span>
                     <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">Tools & Technologies</h2>
                     <div className="h-1 w-16 bg-[#38BDF8] rounded-full"></div>
                 </motion.div>
