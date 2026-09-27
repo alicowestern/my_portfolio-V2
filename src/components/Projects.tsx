@@ -166,7 +166,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                                         Live
                                     </a>
                                 ) : project.demoUrl && project.demoUrl.startsWith("Deployed") ? (
-                                    <span className="flex items-center gap-2 bg-[#34D399]/10 text-[#34D399] px-4 py-2 rounded-full text-xs font-bold border border-[#34D399]/20">
+                                    <span className="flex items-center gap-2 bg-[#18181B] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold border border-[#18181B]/20">
                                         <Shield size={14} />
                                         Internal
                                     </span>

@@ -209,7 +209,7 @@ export default function CTA() {
                                         whileHover={{ scale: status === "loading" ? 1 : 1.03 }}
                                         whileTap={{ scale: status === "loading" ? 1 : 0.97 }}
                                         disabled={status === "loading"}
-                                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold text-base hover:shadow-[0_0_40px_rgba(56,189,248,0.3)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed"
+                                        className="inline-flex items-center gap-3 bg-[#18181B] text-[#FAFAFA] px-8 py-3.5 rounded-full font-bold text-base hover:bg-black hover:shadow-md transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                                     >
                                         {status === "loading" ? (
                                             <>

@@ -77,7 +77,10 @@ export const techStack = {
     SpringSecurity: { name: "Spring Security", icon: "https://cdn.simpleicons.org/springsecurity/6DB33F" },
     Flyway: { name: "Flyway", icon: "https://cdn.simpleicons.org/flyway/CC0200" },
     ChartJS: { name: "Chart.js", icon: "https://cdn.simpleicons.org/chartdotjs/FF6384" },
-    Caddy: { name: "Caddy", icon: "https://cdn.simpleicons.org/caddy/1F88C0" }
+    Caddy: { name: "Caddy", icon: "https://cdn.simpleicons.org/caddy/1F88C0" },
+    Cursor: { name: "Cursor", icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2318181b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 4 7.07 17 2.51-7.39L21 11.07z'/%3E%3C/svg%3E" },
+    Codex: { name: "OpenAI Codex", icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2318181b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E" },
+    Antigravity: { name: "Antigravity", icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z'/%3E%3Cpath d='m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z'/%3E%3Cpath d='M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0'/%3E%3Cpath d='M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5'/%3E%3C/svg%3E" }
 };
 
 export const tools = [
@@ -94,8 +97,8 @@ export const tools = [
         items: [techStack.Keycloak, techStack.Caddy, techStack.Maven]
     },
     {
-        category: "Tools & Design",
-        items: [techStack.Figma, techStack.Git, techStack.GitHub, techStack.Swagger, techStack.Trello, techStack.Jira]
+        category: "Tools & AI",
+        items: [techStack.Figma, techStack.Git, techStack.GitHub, techStack.Swagger, techStack.Trello, techStack.Jira, techStack.Cursor, techStack.Codex, techStack.Antigravity]
     }
 ];
 
@@ -112,11 +115,11 @@ export const projects = [
         media: null
     },
     {
-        title: "SeeHere (CBE ATM Management System)",
+        title: "SeeHere (CBE ATM Source of Truth)",
         role: "Full-Stack Developer / Software Engineer",
         timeline: "",
         team: "Commercial Bank of Ethiopia (CBE)",
-        description: "Engineered a secure, centralized ATM Management System for the Commercial Bank of Ethiopia (CBE) to replace fragmented manual tracking. Built with Java Spring Boot and Next.js, the system features strict Role-Based Access Control and audit logging on the bank's LAN, significantly improving hardware downtime response.",
+        description: "Engineered a secure, centralized 'Source of Truth' system for the Commercial Bank of Ethiopia (CBE) to manage all ATMs and their 20+ dynamic attributes. Replacing vulnerable manual spreadsheets and fragmented communication, this Java Spring Boot and Next.js platform ensures hardware data remains consistently updated, synchronized, and secure across the bank's internal network.",
         tech: [techStack.NextJS, techStack.React, techStack.TypeScript, techStack.Tailwind, techStack.SpringBoot, techStack.PostgreSQL],
         link: "https://github.com/alicowestern/SeeHere",
         demoUrl: "Deployed on CBE LAN",

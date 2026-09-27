@@ -17,10 +17,33 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [showCvModal, setShowCvModal] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+
+            // Scroll spy logic
+            const sections = navLinks.map(link => link.href.substring(1));
+            let current = "";
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    // If the section is near the top of the viewport
+                    if (rect.top <= 200 && rect.bottom >= 200) {
+                        current = section;
+                        break;
+                    }
+                }
+            }
+            if (window.scrollY === 0) current = ""; // Reset at the very top
+            setActiveSection(current);
+        };
+        
         window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initial check
+        
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -56,15 +79,22 @@ export default function Header() {
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="relative px-4 py-2 text-sm font-medium text-[#52525B] hover:text-[#18181B] transition-colors rounded-lg hover:bg-black/5"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isActive = activeSection === link.href.substring(1);
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
+                                        isActive 
+                                            ? "text-[#38BDF8] bg-[#38BDF8]/10" 
+                                            : "text-[#52525B] hover:text-[#18181B] hover:bg-black/5"
+                                    }`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
                     </nav>
 
                     <div className="flex items-center gap-3">
@@ -135,22 +165,29 @@ export default function Header() {
 
                             {/* Nav Links */}
                             <div className="flex-1 py-6 px-4 space-y-1">
-                                {navLinks.map((link, i) => (
-                                    <motion.div
-                                        key={link.href}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.1 + i * 0.05 }}
-                                    >
-                                        <Link
-                                            href={link.href}
-                                            onClick={() => setMobileOpen(false)}
-                                            className="block px-4 py-3 text-base font-medium text-[#52525B] hover:text-[#18181B] hover:bg-black/5 rounded-xl transition-all"
+                                {navLinks.map((link, i) => {
+                                    const isActive = activeSection === link.href.substring(1);
+                                    return (
+                                        <motion.div
+                                            key={link.href}
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.1 + i * 0.05 }}
                                         >
-                                            {link.label}
-                                        </Link>
-                                    </motion.div>
-                                ))}
+                                            <Link
+                                                href={link.href}
+                                                onClick={() => setMobileOpen(false)}
+                                                className={`block px-4 py-3 text-base font-medium rounded-xl transition-all ${
+                                                    isActive 
+                                                        ? "text-[#38BDF8] bg-[#38BDF8]/10 font-bold" 
+                                                        : "text-[#52525B] hover:text-[#18181B] hover:bg-black/5"
+                                                }`}
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
 
                             {/* Bottom Actions */}
