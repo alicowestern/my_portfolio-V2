@@ -64,7 +64,7 @@ export default function FocusAreas() {
                 >
                     <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Expertise</span>
                     <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">What I Focus On</h2>
-                    <div className="h-1 w-16 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full"></div>
+                    <div className="h-1 w-16 bg-[#38BDF8] rounded-full"></div>
                 </motion.div>
 
                 <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 pb-6 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">

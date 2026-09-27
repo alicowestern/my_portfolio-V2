@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { realWorldContext } from "@/data";
@@ -15,9 +15,9 @@ export default function RealWorldContext() {
                     className="relative text-center"
                 >
                     <div className="flex flex-col items-center justify-center">
-                        <Quote size={32} className="text-[#34D399]/30 mb-8" />
+                        <Quote size={32} className="text-[#38BDF8]/30 mb-8" />
                         
-                        <h3 className="text-[#34D399] font-bold text-xs tracking-[0.2em] uppercase font-[family-name:var(--font-syne)] mb-6">
+                        <h3 className="text-[#38BDF8] font-bold text-xs tracking-[0.2em] uppercase font-[family-name:var(--font-syne)] mb-6">
                             Real-World Context
                         </h3>
                         
@@ -25,7 +25,7 @@ export default function RealWorldContext() {
                             &ldquo;{realWorldContext.content}&rdquo;
                         </p>
 
-                        <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#34D399]/40 to-transparent mt-12" />
+                        <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#38BDF8]/40 to-transparent mt-12" />
                     </div>
                 </motion.div>
             </div>

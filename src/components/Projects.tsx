@@ -127,8 +127,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 transition={{ type: "spring", stiffness: 80, damping: 20 }}
                 className="relative rounded-2xl overflow-hidden group"
             >
-                {/* Animated gradient border */}
-                <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-[#38BDF8]/30 via-black/[0.06] to-[#818CF8]/30 group-hover:from-[#38BDF8]/50 group-hover:to-[#818CF8]/50 transition-all duration-500">
+                {/* Card border */}
+                <div className="absolute inset-0 rounded-2xl p-[1px] bg-black/[0.08] group-hover:bg-black/[0.12] transition-all duration-500">
                     <div className="absolute inset-[1px] rounded-2xl bg-white" />
                 </div>
 
@@ -287,7 +287,7 @@ export default function Projects() {
                 >
                     <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Portfolio</span>
                     <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">Selected Projects</h2>
-                    <div className="h-1 w-16 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full"></div>
+                    <div className="h-1 w-16 bg-[#38BDF8] rounded-full"></div>
                 </motion.div>
 
                 <div className="space-y-8">

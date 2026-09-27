@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -66,7 +66,7 @@ export default function ScrollToTop() {
                         <defs>
                             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stopColor="#38BDF8" />
-                                <stop offset="100%" stopColor="#34D399" />
+                                <stop offset="100%" stopColor="#38BDF8" />
                             </linearGradient>
                         </defs>
                     </svg>

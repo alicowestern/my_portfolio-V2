@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
@@ -15,7 +15,7 @@ export default function Experience() {
                 >
                     <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Career</span>
                     <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">Professional Experience</h2>
-                    <div className="h-1 w-16 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full"></div>
+                    <div className="h-1 w-16 bg-[#38BDF8] rounded-full"></div>
                 </motion.div>
 
                 {/* Editorial Layout for Experience */}
