@@ -7,7 +7,7 @@ import { personalInfo } from "@/data";
 function Counter({ from, to, suffix = "", duration = 2 }: { from: number; to: number; suffix?: string; duration?: number }) {
     const [count, setCount] = useState(from);
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     useEffect(() => {
         if (!isInView) {
@@ -39,7 +39,7 @@ function Counter({ from, to, suffix = "", duration = 2 }: { from: number; to: nu
 function TypewriterText({ text, speed = 15 }: { text: string; speed?: number }) {
     const [displayedCount, setDisplayedCount] = useState(0);
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-50px" });
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
 
     useEffect(() => {
         if (!isInView) {
@@ -82,7 +82,7 @@ export default function About() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 80, damping: 20 }}
                     className="text-center"
                 >
@@ -90,7 +90,7 @@ export default function About() {
                     <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
                         className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#38BDF8]/10 to-[#818CF8]/10 flex items-center justify-center mb-6"
                     >
@@ -112,7 +112,7 @@ export default function About() {
                                     key={i}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: false }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: 0.3 + i * 0.1 }}
                                     className="text-center"
                                 >

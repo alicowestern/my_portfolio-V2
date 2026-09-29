@@ -33,7 +33,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-[calc(100vh-80px)] min-h-[500px] md:min-h-[600px] pt-12 md:pt-20 pb-10 px-6 overflow-hidden flex flex-col justify-center">
+        <section className="relative min-h-[calc(100vh-80px)] pt-12 md:pt-20 pb-10 px-6 overflow-hidden flex flex-col justify-center">
 
             {/* Aurora Background */}
             <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
@@ -63,7 +63,7 @@ export default function Hero() {
 
 
             <div className="container mx-auto max-w-5xl relative z-10 flex-grow flex items-center">
-                <div className="flex flex-col items-start justify-center w-full mt-10 md:mt-16">
+                <div className="flex flex-col items-start justify-center w-full">
                     {/* Text Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}

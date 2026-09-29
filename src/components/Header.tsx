@@ -85,13 +85,16 @@ export default function Header() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
+                                    className={`relative px-4 py-2 text-sm transition-colors rounded-lg ${
                                         isActive 
-                                            ? "text-[#38BDF8] bg-[#38BDF8]/10" 
-                                            : "text-[#52525B] hover:text-[#18181B] hover:bg-black/5"
+                                            ? "text-[#18181B] font-bold" 
+                                            : "text-[#52525B] font-medium hover:text-[#18181B] hover:bg-black/5"
                                     }`}
                                 >
                                     {link.label}
+                                    {isActive && (
+                                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-[#18181B] rounded-full" />
+                                    )}
                                 </Link>
                             );
                         })}
@@ -177,10 +180,10 @@ export default function Header() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setMobileOpen(false)}
-                                                className={`block px-4 py-3 text-base font-medium rounded-xl transition-all ${
+                                                className={`block px-4 py-3 text-base rounded-xl transition-all ${
                                                     isActive 
-                                                        ? "text-[#38BDF8] bg-[#38BDF8]/10 font-bold" 
-                                                        : "text-[#52525B] hover:text-[#18181B] hover:bg-black/5"
+                                                        ? "text-[#18181B] font-bold border-l-2 border-[#18181B]" 
+                                                        : "text-[#52525B] font-medium hover:text-[#18181B] hover:bg-black/5"
                                                 }`}
                                             >
                                                 {link.label}
