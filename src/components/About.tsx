@@ -69,7 +69,7 @@ function TypewriterText({ text, speed = 15 }: { text: string; speed?: number }) 
 
 export default function About() {
     const stats = [
-        { value: 5, suffix: "th", label: "Year Student" },
+        { value: 2, suffix: "+", label: "Enterprise Systems" },
         { value: 10, suffix: "+", label: "Projects Built" },
         { value: 2, suffix: "+", label: "Years NGO Exp." },
     ];

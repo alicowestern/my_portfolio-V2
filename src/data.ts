@@ -3,13 +3,13 @@ import { Github, Linkedin, Mail, Phone } from "lucide-react";
 export const personalInfo = {
     name: "Alem Desta",
     headline: "Designing solutions that start with understanding the problem.",
-    subHeadline: "Alem Desta, Software Engineer and Full-Stack Developer, focused on requirements analysis and building reliable, user-centered systems for real-world needs.",
-    email: "alicox2024@gmail.com",
+    subHeadline: "Alem Desta — Software Engineer specializing in full-stack development and requirements analysis. Building reliable, user-centered systems for real-world needs.",
+    email: "alemdesta2001@gmail.com",
     github: "https://github.com/alicowestern",
     linkedin: "https://www.linkedin.com/in/alem-desta-73034137b",
     cvUrl: "/Alem-Desta-CV.pdf",
     profileImage: "/profile.jpg",
-    about: "I'm a 5th-year Software Engineering student specializing in full-stack development and requirements analysis. Having engineered secure, enterprise systems for the Commercial Bank of Ethiopia and INSA, I deliver production-ready solutions for complex challenges. Volunteering with NGOs taught me to transform unclear requirements into critical tools for real users. I prioritize clarity, usability, and structured thinking - ensuring every line of code serves a human need."
+    about: "I'm a Software Engineer specializing in full-stack development and requirements analysis. Having engineered secure, enterprise systems for the Commercial Bank of Ethiopia and INSA, I deliver production-ready solutions for complex challenges. Volunteering with NGOs taught me to transform unclear requirements into critical tools for real users. I prioritize clarity, usability, and structured thinking — ensuring every line of code serves a human need."
 };
 
 export const focusAreas = [
@@ -171,7 +171,7 @@ export const socialLinks = [
     {
         name: "Email",
         icon: Mail,
-        href: "mailto:alicox2024@gmail.com"
+        href: "mailto:alemdesta2001@gmail.com"
     },
     {
         name: "Instagram",
