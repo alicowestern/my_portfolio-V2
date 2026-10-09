@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ArrowRight, Github, ChevronDown } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/data";
 
@@ -62,14 +62,14 @@ export default function Hero() {
 
 
 
-            <div className="container mx-auto max-w-5xl relative z-10 flex-grow flex items-center">
-                <div className="flex flex-col items-start justify-center w-full">
+            <div className="container relative z-10 mx-auto flex max-w-5xl flex-grow items-center">
+                <div className="flex w-full flex-col items-start justify-center">
                     {/* Text Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                        className="flex-1 space-y-8 text-left max-w-2xl"
+                        className="max-w-2xl space-y-8 text-left"
                     >
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight font-[family-name:var(--font-syne)] min-h-[120px] md:min-h-0">
                             <motion.span 
@@ -114,6 +114,7 @@ export default function Hero() {
                             </a>
                         </motion.div>
                     </motion.div>
+
                 </div>
             </div>
         </section>

@@ -1,7 +1,8 @@
 "use client";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Shield, Images, X, ChevronLeft, ChevronRight, Play } from "lucide-react";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { ExternalLink, Github, Shield, Images, X, Play, Code2, CheckCircle2 } from "lucide-react";
+import { useEffect, useState, useCallback } from "react";
 import { projects } from "@/data";
 
 /* ─── Media Modal ─── */
@@ -91,82 +92,46 @@ function MediaModal({ project, onClose }: { project: typeof projects[0]; onClose
 
 /* ─── Project Card ─── */
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const rafRef = useRef<number | null>(null);
-    const [isHovering, setIsHovering] = useState(false);
     const [showModal, setShowModal] = useState(false);
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!ref.current) return;
-        const rect = ref.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        rafRef.current = requestAnimationFrame(() => {
-            ref.current?.style.setProperty("--x", `${x}px`);
-            ref.current?.style.setProperty("--y", `${y}px`);
-        });
-    };
-
-    useEffect(() => {
-        return () => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        };
-    }, []);
+    const previewImage = project.media?.images?.[0] ?? null;
 
     return (
         <>
             <motion.div
-                ref={ref}
-                onMouseMove={handleMouseMove}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                className="relative rounded-2xl overflow-hidden group"
+                className="group relative overflow-hidden rounded-2xl"
             >
-                {/* Card border */}
-                <div className="absolute inset-0 rounded-2xl p-[1px] bg-black/[0.08] group-hover:bg-black/[0.12] transition-all duration-500">
-                    <div className="absolute inset-[1px] rounded-2xl bg-white" />
+                <div className="absolute inset-0 rounded-2xl bg-black/[0.08] p-px transition-colors duration-500 group-hover:bg-black/[0.12]">
+                    <div className="absolute inset-px rounded-2xl bg-white" />
                 </div>
 
-                {/* Flashlight effect */}
-                {isHovering && (
-                    <div
-                        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-200"
-                        style={{
-                            background: "radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(56, 189, 248, 0.06), transparent 50%)",
-                        }}
-                    />
-                )}
-
-                <div className="relative z-20 p-8">
-                    <div className="flex flex-col gap-8">
-                        {/* Header */}
-                        <div className="flex items-start justify-between">
+                <div className="relative z-10 p-5 md:p-8">
+                    <div className="flex flex-col gap-5 md:gap-6">
+                        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
                             <div className="space-y-2">
-                                <span className="text-xs font-medium text-[#38BDF8]/60 tracking-widest uppercase">
+                                <span className="text-xs font-semibold uppercase tracking-widest text-[#0284C7]">
                                     Project {String(index + 1).padStart(2, "0")}
                                 </span>
-                                <h3 className="text-2xl font-bold text-[#18181B] group-hover:text-gradient transition-all font-[family-name:var(--font-syne)]">
+                                <h3 className="font-[family-name:var(--font-syne)] text-2xl font-bold text-[#18181B] transition-all group-hover:text-gradient">
                                     {project.title}
                                 </h3>
                             </div>
-                            <div className="flex gap-2">
+                            <div className="flex shrink-0 gap-2">
                                 {project.demoUrl && project.demoUrl !== "#" && !project.demoUrl.startsWith("Deployed") ? (
                                     <a
                                         href={project.demoUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 bg-[#18181B] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold hover:bg-black hover:shadow-md hover:scale-105 transition-all"
+                                        className="flex items-center gap-2 rounded-full bg-[#18181B] px-4 py-2 text-xs font-bold text-white transition-all hover:bg-black hover:shadow-md"
                                     >
                                         <ExternalLink size={14} />
                                         Live
                                     </a>
-                                ) : project.demoUrl && project.demoUrl.startsWith("Deployed") ? (
-                                    <span className="flex items-center gap-2 bg-[#18181B] text-[#FAFAFA] px-4 py-2 rounded-full text-xs font-bold border border-[#18181B]/20">
+                                ) : project.demoUrl?.startsWith("Deployed") ? (
+                                    <span className="flex items-center gap-2 rounded-full bg-[#18181B] px-4 py-2 text-xs font-bold text-white">
                                         <Shield size={14} />
                                         Internal
                                     </span>
@@ -176,8 +141,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                                         href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 glass-card text-[#52525B] hover:text-[#38BDF8] px-3 py-2 rounded-full text-xs font-medium transition-all"
-                                        aria-label="View Code"
+                                        className="glass-card flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-[#52525B] transition-colors hover:text-[#0284C7]"
+                                        aria-label="View source code"
                                     >
                                         <Github size={14} />
                                         Code
@@ -186,79 +151,80 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                             </div>
                         </div>
 
-                        {(project.role || project.timeline || project.team) && (
+                        {(project.role || project.team) && (
                             <div className="flex flex-wrap gap-2 text-xs text-[#52525B]">
-                                {project.role && (
-                                    <span className="px-3 py-1 rounded-full bg-black/[0.02]">
-                                        Role: {project.role}
-                                    </span>
-                                )}
-                                {project.timeline && (
-                                    <span className="px-3 py-1 rounded-full bg-black/[0.02]">
-                                        Timeline: {project.timeline}
-                                    </span>
-                                )}
-                                {project.team && (
-                                    <span className="px-3 py-1 rounded-full bg-black/[0.02]">
-                                        Team: {project.team}
-                                    </span>
-                                )}
+                                {project.role && <span className="rounded-full bg-black/[0.03] px-3 py-1">Role: {project.role}</span>}
+                                {project.team && <span className="rounded-full bg-black/[0.03] px-3 py-1">Client: {project.team}</span>}
                             </div>
                         )}
 
-                        {/* Content */}
-                        <div>
-                            <p className="text-[#52525B] text-[15px] leading-relaxed">
-                                {project.description}
-                            </p>
-                        </div>
-
-                        {/* See More Button */}
-                        {project.media && (
+                        {previewImage ? (
                             <button
+                                type="button"
                                 onClick={() => setShowModal(true)}
-                                className="flex items-center gap-2.5 self-start bg-[#18181B] text-white px-5 py-2.5 rounded-full text-xs font-bold hover:bg-black hover:shadow-md hover:-translate-y-0.5 transition-all group/btn"
+                                className="group/preview relative h-40 w-full overflow-hidden rounded-2xl border border-black/10 bg-[#F5F5F0] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0284C7] focus-visible:ring-offset-2 md:h-72"
+                                aria-label={`Open ${project.title} demo and gallery`}
                             >
-                                {project.media.video ? <Play size={14} className="group-hover/btn:scale-110 transition-transform" /> : <Images size={14} />}
-                                {project.media.video ? "Watch Demo & Gallery" : "View Gallery"}
+                                <Image
+                                    src={previewImage}
+                                    alt={`${project.title} product interface`}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 960px"
+                                    className="object-cover object-top transition-transform duration-700 group-hover/preview:scale-[1.025]"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
+                                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 text-white md:p-5">
+                                    <div>
+                                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">Product Preview</span>
+                                        <p className="mt-1 text-sm font-semibold">See the working interface</p>
+                                    </div>
+                                    <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-2 text-xs font-bold backdrop-blur-md transition-colors group-hover/preview:bg-white group-hover/preview:text-[#18181B]">
+                                        <Play size={13} />
+                                        Open
+                                    </span>
+                                </div>
                             </button>
+                        ) : (
+                            <div className="relative h-40 w-full overflow-hidden rounded-2xl border border-[#38BDF8]/20 bg-gradient-to-br from-[#E0F2FE] via-white to-[#ECFDF5] md:h-72">
+                                <div
+                                    className="absolute inset-0 opacity-40"
+                                    style={{
+                                        backgroundImage: "linear-gradient(to right, rgba(56,189,248,.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(56,189,248,.18) 1px, transparent 1px)",
+                                        backgroundSize: "32px 32px",
+                                    }}
+                                />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                                    <span className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#0284C7] shadow-sm">
+                                        <Code2 size={21} />
+                                    </span>
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#0284C7]">Live Product</span>
+                                    <p className="mt-2 font-[family-name:var(--font-syne)] text-lg font-bold text-[#18181B]">Operations, orders, and farmer services</p>
+                                </div>
+                            </div>
                         )}
 
-                        {/* Tech Stack */}
-                        <div className="pt-2">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A1A1AA] mb-3 block">Built With</span>
-                            <div className="flex flex-wrap gap-2.5 items-center">
-                                {project.tech.map((tech, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, scale: 0.85, y: 8 }}
-                                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        whileHover={{ 
-                                            scale: 1.08, 
-                                            y: -3,
-                                        }}
-                                        transition={{ 
-                                            type: "spring", 
-                                            stiffness: 300, 
-                                            damping: 22, 
-                                            delay: i * 0.05 
-                                        }}
-                                        className="tech-tag flex items-center gap-2.5 bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF]/80 px-4 py-2 rounded-xl border border-[#E2E8F0] backdrop-blur-sm cursor-default"
-                                    >
-                                        <div className="relative w-[18px] h-[18px] flex items-center justify-center">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={tech.icon}
-                                                alt={tech.name}
-                                                width={18}
-                                                height={18}
-                                                className="object-contain w-full h-full"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        <span className="text-xs font-semibold text-[#3F3F46]">{tech.name}</span>
-                                    </motion.div>
+                        <p className="line-clamp-3 max-w-3xl text-[15px] leading-relaxed text-[#52525B]">
+                            {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2">
+                            {project.highlights.slice(0, 4).map((highlight) => (
+                                <span key={highlight} className="inline-flex items-center gap-1.5 rounded-full border border-black/[0.08] bg-white px-3 py-1.5 text-[11px] font-semibold text-[#3F3F46] shadow-sm">
+                                    <CheckCircle2 size={12} className="text-[#0284C7]" />
+                                    {highlight}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div>
+                            <span className="mb-3 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#A1A1AA]">Built With</span>
+                            <div className="flex flex-wrap items-center gap-2">
+                                {project.tech.map((tech) => (
+                                    <span key={tech.name} className="flex items-center gap-1.5 rounded-xl border border-[#E2E8F0] bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF]/80 px-2.5 py-1.5 text-[11px] font-semibold text-[#3F3F46] md:px-3 md:py-2 md:text-xs">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={tech.icon} alt="" width={15} height={15} className="h-[15px] w-[15px] object-contain" loading="lazy" />
+                                        {tech.name}
+                                    </span>
                                 ))}
                             </div>
                         </div>
@@ -283,11 +249,14 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                    className="mb-16"
+                    className="mb-12 md:mb-16"
                 >
-                    <span className="text-[#38BDF8] text-sm font-medium tracking-widest uppercase mb-3 block">Portfolio</span>
+                    <span className="text-[#0284C7] text-sm font-semibold tracking-widest uppercase mb-3 block">Portfolio</span>
                     <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-syne)] text-[#18181B] mb-4">Selected Projects</h2>
                     <div className="h-1 w-16 bg-[#38BDF8] rounded-full"></div>
+                    <p className="mt-6 max-w-2xl text-sm md:text-base leading-relaxed text-[#52525B]">
+                        A closer look at the problems, engineering decisions, and practical value behind the products I have built.
+                    </p>
                 </motion.div>
 
                 <div className="space-y-8">

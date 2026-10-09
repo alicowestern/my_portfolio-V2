@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export const personalInfo = {
     name: "Alem Desta",
@@ -108,19 +108,24 @@ export const projects = [
         role: "Full Stack Developer",
         timeline: "",
         team: "",
-        description: "Developed a full-stack web platform to streamline poultry farming operations, manage orders, and provide agricultural information. The application significantly improved operational efficiency and enhanced access to farmer services.",
+        description: "A responsive poultry platform that brings farm operations, customer orders, and practical farmer services into one clear digital experience.",
+        highlights: ["Product workflow design", "Full-stack delivery", "Responsive interface"],
         tech: [techStack.NextJS, techStack.React, techStack.Tailwind],
         link: "https://github.com/alicowestern/my_chicken_addis",
         demoUrl: "https://my-chicken-addis-chi.vercel.app/",
-        media: null
+        media: {
+            video: null,
+            images: ["/MyChickenDashboard.png"]
+        }
     },
     {
-        title: "SeeHere (CBE ATM Source of Truth)",
-        role: "Full-Stack Developer / Software Engineer",
+        title: "SeeHere — ATM Management",
+        role: "Full-Stack Software Engineer",
         timeline: "",
-        team: "Commercial Bank of Ethiopia (CBE)",
-        description: "Engineered a secure, centralized 'Source of Truth' system for the Commercial Bank of Ethiopia (CBE) to manage all ATMs and their 20+ dynamic attributes. Replacing vulnerable manual spreadsheets and fragmented communication, this Java Spring Boot and Next.js platform ensures hardware data remains consistently updated, synchronized, and secure across the bank's internal network.",
-        tech: [techStack.NextJS, techStack.React, techStack.TypeScript, techStack.Tailwind, techStack.SpringBoot, techStack.PostgreSQL],
+        team: "CBE, Bole District",
+        description: "A secure ATM operations hub shaped by interviews with CBE Bole District staff. It centralizes monitoring, maintenance, branch contacts, and audit trails, then runs reliably across the bank's LAN.",
+        highlights: ["CBE staff interviews", "3-role RBAC", "Audit logging", "Automated LAN deployment"],
+        tech: [techStack.NextJS, techStack.React, techStack.TypeScript, techStack.Tailwind, techStack.Java, techStack.SpringBoot, techStack.SpringSecurity, techStack.PostgreSQL, techStack.Maven, techStack.Caddy],
         link: "https://github.com/alicowestern/SeeHere",
         demoUrl: "Deployed on CBE LAN",
         media: {
@@ -134,12 +139,13 @@ export const projects = [
         }
     },
     {
-        title: "Zebegna ዘበኛ (Device Exit Control System)",
-        role: "Sole Full-Stack Developer",
+        title: "Zebegna — Device Exit Control",
+        role: "Sole Software Engineer",
         timeline: "",
-        team: "INSA (Information Network Security Administration)",
-        description: "Architected and deployed a security-hardened device exit control system for INSA to digitize enterprise hardware management. Built entirely solo, the platform integrates a Java Spring Boot backend, Keycloak OAuth2, and external ERP synchronization with a React/Vite dashboard for real-time tracking and multi-level approvals.",
-        tech: [techStack.Java, techStack.SpringBoot, techStack.React, techStack.Vite, techStack.TypeScript, techStack.Tailwind, techStack.PostgreSQL, techStack.Swagger],
+        team: "INSA",
+        description: "An enterprise device-exit control system I engineered end to end under INSA security-expert oversight. It turns a 55-page SRS into secure approvals, ERP synchronization, audit trails, and automated reporting.",
+        highlights: ["55-page SRS", "Sole SDLC ownership", "INSA expert oversight", "Keycloak + resilient ERP"],
+        tech: [techStack.Java, techStack.SpringBoot, techStack.SpringSecurity, techStack.React, techStack.Vite, techStack.TypeScript, techStack.Tailwind, techStack.PostgreSQL, techStack.Keycloak, techStack.Flyway, techStack.ChartJS, techStack.Swagger, techStack.Maven],
         link: "#",
         demoUrl: "Deployed on INSA Internal Network",
         media: {

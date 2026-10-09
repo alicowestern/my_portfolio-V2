@@ -1,6 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { BadgeCheck, FileBarChart, Network, ShieldCheck, Workflow, type LucideIcon } from "lucide-react";
+import { techStack } from "@/data";
+
+type ExperienceSkill = {
+    name: string;
+    icon?: string;
+    Icon?: LucideIcon;
+};
+
+const experienceSkills: ExperienceSkill[] = [
+    { name: "Java", icon: techStack.Java.icon },
+    { name: "Spring Boot", icon: techStack.SpringBoot.icon },
+    { name: "React", icon: techStack.React.icon },
+    { name: "PostgreSQL", icon: techStack.PostgreSQL.icon },
+    { name: "REST APIs", Icon: Network },
+    { name: "Authentication & Authorization", Icon: ShieldCheck },
+    { name: "System Workflows", Icon: Workflow },
+    { name: "Reporting", Icon: FileBarChart },
+    { name: "Software Engineering Practices", Icon: BadgeCheck },
+];
 
 export default function Experience() {
     return (
@@ -47,9 +66,15 @@ export default function Experience() {
                             </p>
                             
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {["Java", "Spring Boot", "React", "PostgreSQL", "REST APIs", "Authentication & Authorization", "System Workflows", "Reporting", "Software Engineering Practices"].map((tech, i) => (
-                                    <span key={i} className="px-3 py-1 bg-black/[0.02] rounded-full text-xs text-[#52525B] hover:text-[#18181B] hover:border-[#38BDF8]/20 transition-colors">
-                                        {tech}
+                                {experienceSkills.map(({ name, icon, Icon }) => (
+                                    <span key={name} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/[0.02] border border-transparent rounded-full text-xs text-[#52525B] hover:text-[#18181B] hover:border-[#38BDF8]/20 transition-colors">
+                                        {icon ? (
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img src={icon} alt="" width={14} height={14} className="h-3.5 w-3.5 object-contain" loading="lazy" />
+                                        ) : Icon ? (
+                                            <Icon size={14} className="text-[#0284C7]" aria-hidden="true" />
+                                        ) : null}
+                                        {name}
                                     </span>
                                 ))}
                             </div>
